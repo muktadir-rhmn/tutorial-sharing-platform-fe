@@ -9,7 +9,7 @@ class TextBox extends React.Component {
         }
 
         let errorMessage = "";
-        if(this.props.errorMessage) {
+        if(this.props.errorMessage && this.props.errorMessage !== "") {
             errorMessage = <small className="errorMessage">{this.props.errorMessage}</small>;
         }
 

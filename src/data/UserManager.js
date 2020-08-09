@@ -20,6 +20,27 @@ const userManager = {
                 failureCallback(errorResponse.message);
             }
         );
+    },
+
+    requestSignUp: (name, email, password, successCallback, failureCallback) => {
+        const data = {
+            name: name,
+            email: email,
+            password: password
+        }
+
+        requester.POST("/user/sign-up", data).then(
+            (response) => {
+                console.log(response);
+
+                successCallback(response);
+            },
+            (error) => {
+                console.error(error);
+
+                failureCallback(error);
+            }
+        )
     }
 }
 

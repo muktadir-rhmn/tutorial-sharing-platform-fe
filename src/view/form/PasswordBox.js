@@ -8,11 +8,16 @@ class PasswordBox extends React.Component {
             description = <small className="description">{this.props.description}</small>
         }
 
+        let errorMessage = "";
+        if(this.props.errorMessage && this.props.errorMessage !== "") {
+            errorMessage = <small className="errorMessage">{this.props.errorMessage}</small>;
+        }
+
         return (
             <div className="form-group">
                 <label htmlFor={this.props.id}>{this.props.label} {description}</label>
                 <input className="form-control" type="password" id={this.props.id}/>
-                <small className="errorMessage"></small>
+                {errorMessage}
             </div>
         )
     }
