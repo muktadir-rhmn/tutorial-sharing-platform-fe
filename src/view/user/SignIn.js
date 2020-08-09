@@ -49,7 +49,7 @@ class SignIn extends React.Component {
 
         requester.POST("/user/sign-in", data).then(
             (response) => {
-                userManager.setUser(response.token, response.userType, response.userID, response.userName);
+                userManager.setSignedInUser(response.token, response.userType, response.userID, response.userName);
 
                 alert(response.message);
                 window.location.href = "/";
