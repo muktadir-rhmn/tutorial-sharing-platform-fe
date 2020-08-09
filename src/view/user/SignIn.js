@@ -5,7 +5,8 @@ import TextBox from '../form/TextBox'
 import PasswordBox from '../form/PasswordBox'
 import Button from '../form/Button'
 import formDataCollector from "../../library/formDataCollector";
-import userManager from "../../data/UserManager";
+import userManager from "../../managers/UserManager";
+import requester from "../../library/requester";
 
 class SignIn extends React.Component {
     constructor(props)  {
@@ -46,12 +47,21 @@ class SignIn extends React.Component {
     handleSignIn() {
         const data =  formDataCollector.collect("sign-in-form");
 
-        userManager.requestSignIn(data.email, data.password, handleSignInSuccess, (errorMessage) => this.setState({overallErrorMessage: errorMessage}));
+        requester.POST("/user/sign-in", data).then(
+            (response) => {
+                userManager.setUser(response.token, response.userType, response.userID, response.userName);
 
-        function handleSignInSuccess(message) {
-            alert(message);
-            window.location.href = "/";
-        }
+                alert(response.message);
+                window.location.href = "/";
+            },
+            (errorResponse) => {
+                console.log(errorResponse);
+
+                this.setState({
+                    overallErrorMessage: errorResponse.message,
+                })
+            }
+        );
     }
 }
 

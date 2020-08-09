@@ -6,7 +6,7 @@ import SignUp from "./view/user/SignUp";
 function App() {
   return (
     <div className="App">
-      <SignUp></SignUp>
+      <SignIn></SignIn>
     </div>
   );
 }

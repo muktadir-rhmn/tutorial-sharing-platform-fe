@@ -4,8 +4,9 @@ import {Link} from 'react-router-dom'
 import TextBox from '../form/TextBox'
 import PasswordBox from '../form/PasswordBox'
 import Button from '../form/Button'
-import userManager from "../../data/UserManager";
+import userManager from "../../managers/UserManager";
 import formDataCollector from "../../library/formDataCollector";
+import requester from "../../library/requester";
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -42,21 +43,33 @@ class SignUp extends React.Component {
 
     handleSignUp() {
         const data = formDataCollector.collect("sign-up-form");
-        userManager.requestSignUp(data.name, data.email, data.password,
-            (message) => {
-                alert(message);
-                window.location.href = "/signin";
+
+        requester.POST("/user/sign-up", data).then(
+            (response) => {
+                console.log(response);
+
+                handleSignUpSuccess(this, response.message);
             },
-            (error) => {
-                this.setState({
-                    errorMessage: {
-                        name: error.name,
-                        email: error.email,
-                        password: error.password,
-                    }
-                })
+            (errorObject) => {
+                console.error(errorObject);
+                handleSignUpFailure(this, errorObject)
             }
         )
+
+        function handleSignUpSuccess(signUpComponent, message){
+            alert(message);
+            window.location.href = "/signin";
+        }
+
+        function handleSignUpFailure(signUpComponent, errorObject) {
+            signUpComponent.setState({
+                errorMessage: {
+                    name: errorObject.name,
+                    email: errorObject.email,
+                    password: errorObject.password,
+                }
+            })
+        }
     }
 }
 
