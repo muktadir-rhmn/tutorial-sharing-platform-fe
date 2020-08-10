@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import TextBox from '../form/TextBox'
 import PasswordBox from '../form/PasswordBox'
 import Button from '../form/Button'
-import userManager from "../../managers/UserManager";
+import userManager from "./UserManager";
 import formDataCollector from "../../library/formDataCollector";
 import requester from "../../library/requester";
 
@@ -35,10 +35,10 @@ class SignUp extends React.Component {
                 <TextBox id="email" label="Email Address" errorMessage={this.state.errorMessage.email}/>
                 <PasswordBox id="password" label="Password" description="At least 8 character long" errorMessage={this.state.errorMessage.password}/>
                 <Button onClick={this.handleSignUp} label="Sign Up"/><br/>
-                <div className="alreadySignedUp">Already have an account? </div>
+                <div className="alreadySignedUp">Already have an account? <Link to="/user/sign-in">Signin</Link>
+                </div>
             </div>
         );
-        //<Link to="/signin">Signin</Link>
     }
 
     handleSignUp() {
@@ -58,7 +58,7 @@ class SignUp extends React.Component {
 
         function handleSignUpSuccess(signUpComponent, message){
             alert(message);
-            window.location.href = "/signin";
+            window.location.href = "/user/sign-in";
         }
 
         function handleSignUpFailure(signUpComponent, errorObject) {

@@ -5,7 +5,7 @@ import TextBox from '../form/TextBox'
 import PasswordBox from '../form/PasswordBox'
 import Button from '../form/Button'
 import formDataCollector from "../../library/formDataCollector";
-import userManager from "../../managers/UserManager";
+import userManager from "./UserManager";
 import requester from "../../library/requester";
 
 class SignIn extends React.Component {

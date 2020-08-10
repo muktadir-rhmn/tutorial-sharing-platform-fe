@@ -3,7 +3,9 @@ import './App.css';
 import SignIn from "./view/user/SignIn";
 import SignUp from "./view/user/SignUp";
 import {Switch, Route, BrowserRouter as Router} from 'react-router-dom'
-import userManager from "./managers/UserManager";
+import userManager from "./view/user/UserManager";
+import Test from "./view/Test";
+import AdminMain from "./view/admin/AdminMain";
 
 function App() {
     let userName = "";
@@ -26,6 +28,12 @@ function App() {
                 </Route>
                 <Route path="/user/sign-up">
                     <SignUp />
+                </Route>
+                <Route path="/admin">
+                    <AdminMain />
+                </Route>
+                <Route path="/test">
+                    <Test/>
                 </Route>
             </Switch>
         </Router>
