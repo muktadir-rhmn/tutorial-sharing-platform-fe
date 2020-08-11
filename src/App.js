@@ -4,8 +4,9 @@ import SignIn from "./view/user/SignIn";
 import SignUp from "./view/user/SignUp";
 import {Switch, Route, BrowserRouter as Router} from 'react-router-dom'
 import userManager from "./view/user/UserManager";
-import Test from "./view/Test";
+import RoutingTest from "./view/RoutingTest";
 import AdminMain from "./view/admin/AdminMain";
+import ViewerMain from "./view/viewer/ViewerMain";
 
 function App() {
     let userName = "";
@@ -32,8 +33,11 @@ function App() {
                 <Route path="/admin">
                     <AdminMain />
                 </Route>
+                <Route path="/tutorials/:tutorialID" >
+                    <ViewerMain/>
+                </Route>
                 <Route path="/test">
-                    <Test/>
+                    <RoutingTest/>
                 </Route>
             </Switch>
         </Router>

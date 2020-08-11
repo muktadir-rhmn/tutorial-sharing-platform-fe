@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch, useRouteMatch} from 'react-router-dom'
 import SignIn from "./user/SignIn";
 
-function Test (){
+function RoutingTest (){
         let { path, url } = useRouteMatch();
         console.log(path)
         return (
@@ -12,12 +12,15 @@ function Test (){
                     <Route path={`${path}/ttt`}>
                         <SignIn />
                     </Route>
+                    <Route path="/:id">
+
+                    </Route>
                 </Switch>
 
             </div>
         );
-
-
 }
 
-export default Test;
+
+
+export default RoutingTest;
