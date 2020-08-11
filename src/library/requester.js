@@ -1,3 +1,5 @@
+import userManager from "../view/user/UserManager";
+
 const rootURL = "http://localhost:8080";
 
 const RESPONSE_CODE = {
@@ -28,7 +30,7 @@ const requester = {
                 }
             }
             xhr.open("GET", url, true);
-            xhr.setRequestHeader("token", window.sessionStorage.getItem("token"));
+            xhr.setRequestHeader("token", userManager.getToken());
             xhr.send();
         }) 
         return promise;
@@ -55,7 +57,7 @@ const requester = {
             }
             xhr.open("POST", url, true);
             xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.setRequestHeader("token", window.sessionStorage.getItem("token"));
+            xhr.setRequestHeader("token", userManager.getToken());
             xhr.send(JSON.stringify(requestBody));
         });
         return promise;

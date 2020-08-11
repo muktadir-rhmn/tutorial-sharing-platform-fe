@@ -18,6 +18,8 @@ const userManager = {
     },
 
     getUserName: () => localStorage.getItem("userName"),
+
+    getToken: () => localStorage.getItem("token"),
 }
 
 export default userManager;
