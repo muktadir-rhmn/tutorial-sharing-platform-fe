@@ -3,9 +3,10 @@ import {useParams} from "react-router-dom";
 import TutorialViewer from "./TutorialViewer";
 
 function ViewerMain(props) {
-    let { tutorialID } = useParams();
-    console.log("ViewerMain:: tutorialID" + tutorialID);
+    let { tutorialID, chapterID, lessonID } = useParams();
+    if (typeof chapterID === "undefined") chapterID = null;
+    if (typeof lessonID === "undefined") lessonID = null;
 
-    return <TutorialViewer tutorialID={tutorialID}/>;
+    return <TutorialViewer tutorialID={tutorialID} chapterID={chapterID} lessonID={lessonID}/>;
 }
 export default ViewerMain;

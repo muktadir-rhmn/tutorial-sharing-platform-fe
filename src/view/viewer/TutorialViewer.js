@@ -1,14 +1,17 @@
 import React from 'react';
-import Contents from "./Contents";
-import Lesson from "./Lesson";
-import Comment from "./Comment";
+
+import './Contents/style.css';
+import Contents from "./Contents/Contents";
+import Lesson from "./Lesson/Lesson";
+import Comment from "./Comment/Comment";
+import requester from "../../library/requester";
 
 class TutorialViewer extends React.Component{
     constructor(props)  {
         super(props);
 
         this.state = {
-            currentLessonID: null,
+            tutorial: null,
         };
     }
 
@@ -17,17 +20,17 @@ class TutorialViewer extends React.Component{
             <div className="container">
                 <div className="row">
                     <div className="col-3">
-                        <Contents tutorialID={this.props.tutorialID} changeCurrentTutorial={(tutorialID) => this.changeCurrentTutorial()}/>
+                        <Contents tutorial={this.state.tutorial}/>
                     </div>
                     <div className="col-9">
                         <div className="row">
                             <div className="col">
-                                <Lesson lessonID={this.state.currentLessonID}/>
+                                <Lesson tutorialID={this.props.tutorialID} chapterID={this.props.chapterID} lessonID={this.props.lessonID}/>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col">
-                                <Comment lessonID={this.state.currentLessonID}/>
+                                <Comment tutorialID={this.props.tutorialID} chapterID={this.props.chapterID} lessonID={this.props.lessonID}/>
                             </div>
                         </div>
                     </div>
@@ -36,10 +39,20 @@ class TutorialViewer extends React.Component{
         );
     }
 
-    changeCurrentTutorial(tutorialID) {
-        this.setState({
-            currentTutorialID: tutorialID
-        })
+    componentDidMount() {
+        this.fetchContents(this.props.tutorialID);
+    }
+
+    fetchContents(tutorialID) {
+        const path = `/tutorials/${tutorialID}`;
+        requester.GET(path).then(
+            (tutorial) => {
+                this.setState({tutorial: tutorial});
+            },
+            (error) => {
+                console.error(error);
+            }
+        )
     }
 }
 

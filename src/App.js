@@ -33,6 +33,9 @@ function App() {
                 <Route path="/admin">
                     <AdminMain />
                 </Route>
+                <Route path="/tutorials/:tutorialID/:chapterID/:lessonID" >
+                    <ViewerMain/>
+                </Route>
                 <Route path="/tutorials/:tutorialID" >
                     <ViewerMain/>
                 </Route>

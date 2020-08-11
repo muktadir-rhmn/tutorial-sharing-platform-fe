@@ -1,0 +1,42 @@
+import React from 'react';
+import requester from "../../../library/requester";
+
+class Lesson extends React.Component{
+    constructor(props)  {
+        super(props);
+
+        this.state = {
+            lesson: null,
+        };
+    }
+
+    render() {
+        if (this.state.lesson === null) return <div></div>;
+
+        const lesson = this.state.lesson;
+        return (
+            <div>
+                <h1>{lesson.name}</h1>
+                {lesson.body}
+            </div>
+        );
+    }
+
+    componentDidMount() {
+        this.fetchLesson(this.props.lessonID);
+    }
+
+    fetchLesson(lessonID) {
+        const path = `/lessons/${lessonID}`;
+        requester.GET(path).then(
+            (lesson) => {
+                this.setState({lesson: lesson})
+            },
+            (error) => {
+                console.error(error);
+            }
+        )
+    }
+}
+
+export default Lesson;
