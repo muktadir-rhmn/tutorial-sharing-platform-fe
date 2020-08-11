@@ -4187,7 +4187,7 @@ var dataUser = new Data();
 //		paths to a single mechanism.
 //	3. Use the same single mechanism to support "private" and "user" managers.
 //	4. _Never_ expose "private" managers to user code (TODO: Drop _data, _removeData)
-//	5. Avoid exposing implementation details on user objects (eg. expando properties)
+//	5. Avoid exposing implementation contents on user objects (eg. expando properties)
 //	6. Provide a clear path for implementation upgrade to WeakMap in 2014
 
 var rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,

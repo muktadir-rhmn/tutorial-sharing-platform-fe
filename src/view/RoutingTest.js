@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch, useRouteMatch} from 'react-router-dom'
 import SignIn from "./user/SignIn";
 
+/** function component, not class component, is required to use useRouteMatch() */
 function RoutingTest (){
         let { path, url } = useRouteMatch();
         console.log(path)

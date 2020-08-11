@@ -1,9 +1,13 @@
 import React from 'react';
-import {Route, Switch, useRouteMatch, useLocation} from 'react-router-dom'
+import {Route, Switch, useRouteMatch, useLocation, Link} from 'react-router-dom'
 
 import './style.css'
+import CreateTutorial from "./tutorial/create/CreateTutorial";
+import TutorialList from "./tutorial/list/TutorialList";
+import TutorialContentsRouter from "./tutorial/contents/TutorialContentsRouter";
+import AddUpdateLessonRouter from "./Lesson/AddUpdateLessonRouter";
 
-function AdminMain (){
+function AdminRouter (){
     let { path, url } = useRouteMatch();
     console.log(useRouteMatch())
     console.log(useLocation())
@@ -15,11 +19,14 @@ function AdminMain (){
                     <div id="main-menu" className="main-menu collapse navbar-collapse">
                         <ul className="nav navbar-nav">
                             <li>
-                                <a href="index.html"><i className="menu-icon fa fa-laptop"></i>Dashboard </a>
+                                <Link to="/admin"> <i className="menu-icon fa fa-table"></i> Dashboard</Link>
                             </li>
-                            <li className="menu-title">UI elements</li>
+                            <li className="menu-title">My Tutorials</li>
                             <li>
-                                <a href="#" className="dropdown-toggle"> <i className="menu-icon fa fa-table"></i>Tables</a>
+                                <Link to="/admin/tutorials/create"> <i className="menu-icon fa fa-table"></i> Create Tutorial</Link>
+                            </li>
+                            <li>
+                                <Link to="/admin/tutorials/"> <i className="menu-icon fa fa-table"></i> Tutorial List</Link>
                             </li>
                         </ul>
                     </div>
@@ -51,8 +58,20 @@ function AdminMain (){
                                         <Route exact path={path}>
                                             Welcome to Admin Portal
                                         </Route>
+                                        <Route exact path={`${path}/tutorials/`}>
+                                            <TutorialList/>
+                                        </Route>
                                         <Route path={`${path}/tutorials/create`}>
-                                            Hello
+                                            <CreateTutorial/>
+                                        </Route>
+                                        <Route exact path={`${path}/tutorials/:tutorialID`}>
+                                            <TutorialContentsRouter/>
+                                        </Route>
+                                        <Route exact path={`${path}/tutorials/:tutorialID/:chapterID/add-lesson`}>
+                                            <AddUpdateLessonRouter operation="add"/>
+                                        </Route>
+                                        <Route exact path={`${path}/tutorials/:tutorialID/:chapterID/:lessonID/update`}>
+                                            <AddUpdateLessonRouter operation="update"/>
                                         </Route>
                                     </Switch>
                                 </div>
@@ -70,4 +89,4 @@ function AdminMain (){
 
 }
 
-export default AdminMain;
+export default AdminRouter;

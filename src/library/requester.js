@@ -25,6 +25,7 @@ const requester = {
                     } else if(xhr.status === RESPONSE_CODE.VALIDATION_ERROR) {
                         reject(json);
                     } else {
+                        console.error(json);
                         reject(json);
                     }
                 }
@@ -36,6 +37,14 @@ const requester = {
         return promise;
     }, 
     POST: function(path, requestBody={}) {
+        return requester._POST_PUT("POST", path, requestBody);
+    },
+
+    PUT: (path, requestBody) => {
+        return requester._POST_PUT("PUT", path, requestBody);
+    },
+
+    _POST_PUT: (methodName, path, requestBody={}) => {
         const url = `${rootURL}${path}`;
         console.log(url);
 
@@ -55,14 +64,13 @@ const requester = {
                     }
                 }
             }
-            xhr.open("POST", url, true);
+            xhr.open(methodName, url, true);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("token", userManager.getToken());
             xhr.send(JSON.stringify(requestBody));
         });
         return promise;
-    }
-
+    },
 }
 
 export default requester;

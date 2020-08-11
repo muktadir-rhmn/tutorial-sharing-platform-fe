@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css'
 
-class TextBox extends React.Component {
+class TextArea extends React.Component {
     render() {
         let description = ""
         if(this.props.description) {
@@ -16,11 +16,11 @@ class TextBox extends React.Component {
         return (
             <div className="form-group">
                 <label htmlFor={this.props.id}>{this.props.label} {description}</label>
-                <input className="form-input form-control" type="text" id={this.props.id} defaultValue={this.props.value}/>
+                <textarea className="form-control" id={this.props.id} defaultValue={this.props.value}/>
                 {errorMessage}
             </div>
         )
     }
 }
 
-export default TextBox;
+export default TextArea;

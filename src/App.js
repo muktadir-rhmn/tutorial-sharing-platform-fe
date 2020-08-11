@@ -5,7 +5,7 @@ import SignUp from "./view/user/SignUp";
 import {Switch, Route, BrowserRouter as Router} from 'react-router-dom'
 import userManager from "./view/user/UserManager";
 import RoutingTest from "./view/RoutingTest";
-import AdminMain from "./view/admin/AdminMain";
+import AdminRouter from "./view/admin/AdminRouter";
 import ViewerMain from "./view/viewer/ViewerMain";
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
                     <SignUp />
                 </Route>
                 <Route path="/admin">
-                    <AdminMain />
+                    <AdminRouter />
                 </Route>
                 <Route path="/tutorials/:tutorialID/:chapterID/:lessonID" >
                     <ViewerMain/>
