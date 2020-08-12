@@ -1,6 +1,6 @@
 import React from 'react';
 import requester from "../../../library/requester";
-import TutorialCard from "../tutorial-card/TutorialCard";
+import TutorialCardList from "../tutorial-card/TutorialCardList";
 
 
 class LandingPage extends React.Component{
@@ -13,24 +13,13 @@ class LandingPage extends React.Component{
     }
 
     render() {
-        const tutorialList = this.renderTutorialList(this.state.recentTutorials);
 
         return (
             <div>
                 <h1>Recent Tutorials</h1>
-                <div className="d-flex">
-                    {tutorialList}
-                </div>
+                <TutorialCardList tutorials={this.state.recentTutorials}/>
             </div>
         );
-    }
-
-    renderTutorialList(tutorials) {
-        const tutorialList = [];
-        for (let i = 0 ; i < tutorials.length; i++) {
-            tutorialList.push(<TutorialCard key={tutorials[i].id} tutorial={tutorials[i]}/>);
-        }
-        return tutorialList;
     }
 
     componentDidMount() {
