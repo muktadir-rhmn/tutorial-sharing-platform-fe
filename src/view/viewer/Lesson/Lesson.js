@@ -15,7 +15,7 @@ class Lesson extends React.Component{
 
         const lesson = this.state.lesson;
         return (
-            <div>
+            <div className="card p-3">
                 <h1>{lesson.name}</h1>
                 {lesson.body}
             </div>

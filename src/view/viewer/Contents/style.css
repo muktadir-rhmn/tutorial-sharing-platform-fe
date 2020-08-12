@@ -1,3 +1,36 @@
+.contents-section {
+    background-color: #f1f2f7;
+}
+
+.heading {
+    background-color: #b1dfbb;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.contents {
+    height: 90vh;
+    overflow: scroll;
+}
+
+.contents ul {
+    list-style-type: none;
+}
+
+.contents li {
+    padding: 2px;
+}
+
+ul.lesson-list li:hover {
+    background-color: #d1ecf1;
+}
+
+ul.lesson-list li a {
+    display: block;
+}
+
 .chapter-name {
     background-color: darksalmon;
+    padding: 5px;
+    border-radius: 5px;
 }

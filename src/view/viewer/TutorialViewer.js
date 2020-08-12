@@ -3,7 +3,7 @@ import React from 'react';
 import './Contents/style.css';
 import Contents from "./Contents/Contents";
 import Lesson from "./Lesson/Lesson";
-import Comment from "./Comment/Comment";
+import Comments from "./Comment/Comments";
 import requester from "../../library/requester";
 
 class TutorialViewer extends React.Component{
@@ -17,7 +17,7 @@ class TutorialViewer extends React.Component{
 
     render() {
         return (
-            <div className="container">
+            <div className="container mt-3">
                 <div className="row">
                     <div className="col-3">
                         <Contents tutorial={this.state.tutorial}/>
@@ -30,7 +30,7 @@ class TutorialViewer extends React.Component{
                         </div>
                         <div className="row">
                             <div className="col">
-                                <Comment tutorialID={this.props.tutorialID} chapterID={this.props.chapterID} lessonID={this.props.lessonID}/>
+                                <Comments tutorialID={this.props.tutorialID} chapterID={this.props.chapterID} lessonID={this.props.lessonID}/>
                             </div>
                         </div>
                     </div>

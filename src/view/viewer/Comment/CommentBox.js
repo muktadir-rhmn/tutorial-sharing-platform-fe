@@ -1,6 +1,5 @@
 import React from 'react';
 import userManager from "../../user/UserManager";
-import Button from "../../form/Button";
 import requester from "../../../library/requester";
 
 class CommentBox extends React.Component{
@@ -14,9 +13,11 @@ class CommentBox extends React.Component{
         if (!userManager.isSignedIn()) return <div/>;
 
         return (
-            <div className="comment-box">
-                <textarea className="comment-body"/> <br/>
-                <Button label="Comment" onClick={(event) => this.addComment(event)}/>
+            <div className="comment-box card p-2 mt-3">
+                <textarea className="form-control"/>
+                <div className="d-flex justify-content-end mt-1">
+                    <button className="btn btn-success" onClick={(event) => this.addComment(event)}>Comment</button>
+                </div>
             </div>
         );
     }
@@ -45,7 +46,7 @@ class CommentBox extends React.Component{
             let t = buttonElement.parentElement;
             while (!t.classList.contains("comment-box")) t = t.parentElement;
 
-            return t.getElementsByClassName("comment-body")[0];
+            return t.getElementsByTagName("textarea")[0];
         }
     }
 }
