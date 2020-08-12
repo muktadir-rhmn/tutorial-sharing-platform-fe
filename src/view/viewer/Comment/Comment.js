@@ -40,6 +40,10 @@ class Comment extends React.Component{
         this.fetchComments(this.props.lessonID);
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.lessonID !== this.props.lessonID) this.fetchComments(this.props.lessonID);
+    }
+
     fetchComments(lessonID) {
         const path = `/comments/${lessonID}`;
         requester.GET(path).then(
