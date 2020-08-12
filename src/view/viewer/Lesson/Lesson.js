@@ -31,7 +31,10 @@ class Lesson extends React.Component{
     }
 
     fetchLesson(lessonID) {
-        if (lessonID === null) return;
+        if (lessonID === null) {
+            this.setState({lesson: null});
+            return;
+        }
 
         const path = `/lessons/${lessonID}`;
         requester.GET(path).then(

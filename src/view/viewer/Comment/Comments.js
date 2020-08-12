@@ -44,7 +44,12 @@ class Comments extends React.Component{
     }
 
     fetchComments(lessonID) {
-        if (lessonID == null) return;
+        if (lessonID == null) {
+            this.setState({
+                comments: [],
+            })
+            return;
+        }
 
         const path = `/comments/${lessonID}`;
         requester.GET(path).then(
