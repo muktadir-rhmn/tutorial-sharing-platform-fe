@@ -8,7 +8,7 @@ import AdminRouter from "./view/admin/AdminRouter";
 import ViewerMain from "./view/viewer/ViewerMain";
 import LandingPage from "./view/navigator/landing-page/LandingPage";
 import NavBar from "./view/nav-bar/NavBar";
-import TutorialsByCategoryRouter from "./view/navigator/by-category/TutorialsByCategoryRouter";
+import TutorialsByRouter from "./view/navigator/by/TutorialsByRouter";
 
 function App() {
   return (
@@ -20,8 +20,8 @@ function App() {
                 <Route exact path="/">
                     <LandingPage />
                 </Route>
-                <Route path="/category/:categoryID">
-                    <TutorialsByCategoryRouter />
+                <Route path="/browse/:by/:itemID">
+                    <TutorialsByRouter />
                 </Route>
                 <Route path="/user/sign-in">
                     <SignIn />

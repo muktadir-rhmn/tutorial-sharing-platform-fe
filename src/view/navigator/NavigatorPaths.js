@@ -1,6 +1,6 @@
 const navigatorPaths = {
-    tutorialsByCategoryPath: (categoryID) => `/category/${categoryID}`,
-    tutorialsByAuthorPath: (authorID) => `/author/${authorID}`,
+    tutorialsByCategoryPath: (categoryID) => `/browse/category/${categoryID}`,
+    tutorialsByAuthorPath: (authorID) => `/browse/author/${authorID}`,
 }
 
 export default navigatorPaths;

@@ -2,7 +2,7 @@ import React from 'react';
 import requester from "../../../library/requester";
 import TutorialCardList from "../tutorial-card/TutorialCardList";
 
-class TutorialsByCategory extends React.Component{
+class TutorialsBy extends React.Component{
     constructor(props)  {
         super(props);
 
@@ -16,16 +16,18 @@ class TutorialsByCategory extends React.Component{
     }
 
     componentDidMount() {
-        this.fetchTutorialsOfCategory(this.props.categoryID);
+        this.fetchTutorialsOfCategory(this.props.by, this.props.itemID);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.categoryID != prevProps.categoryID) this.fetchTutorialsOfCategory(this.props.categoryID);
+        if (this.props.itemID != prevProps.itemID) this.fetchTutorialsOfCategory(this.props.by, this.props.itemID);
     }
 
-    fetchTutorialsOfCategory(categoryID) {
-        const path = `/tutorials`
-        requester.GET(path, {categoryID: categoryID}).then(
+    fetchTutorialsOfCategory(by, itemID) {
+        const path = `/tutorials`;
+        const queryParams = {};
+        queryParams[by+"ID"] = itemID;
+        requester.GET(path, queryParams).then(
             (response) => {
                 this.setState({
                     tutorials: response.tutorials,
@@ -35,4 +37,4 @@ class TutorialsByCategory extends React.Component{
     }
 }
 
-export default TutorialsByCategory;
+export default TutorialsBy;

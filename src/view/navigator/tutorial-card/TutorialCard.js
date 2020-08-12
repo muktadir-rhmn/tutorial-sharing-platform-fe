@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import viewerPaths from "../../viewer/ViewerPaths";
 
 import './style.css';
+import navigatorPaths from "../NavigatorPaths";
 
 class TutorialCard extends React.Component{
     constructor(props)  {
@@ -22,7 +23,9 @@ class TutorialCard extends React.Component{
                     <h5 className="card-title">
                         <Link to={viewerPaths.tutorialPath(tutorial.id)}>{tutorial.name}</Link>
                     </h5>
-                    <h6 className="card-subtitle mb-2 text-muted">{tutorial.authorName}</h6>
+                    <h6 className="card-subtitle mb-2 text-muted">
+                        <Link to={navigatorPaths.tutorialsByAuthorPath(tutorial.authorID)}>{tutorial.authorName}</Link>
+                    </h6>
                     <p className="card-text">{tutorial.description}</p>
                 </div>
             </div>
