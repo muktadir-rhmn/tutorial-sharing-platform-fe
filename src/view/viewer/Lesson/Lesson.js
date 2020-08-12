@@ -26,6 +26,10 @@ class Lesson extends React.Component{
         this.fetchLesson(this.props.lessonID);
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.lessonID !== this.props.lessonID) this.fetchLesson(this.props.lessonID);
+    }
+
     fetchLesson(lessonID) {
         const path = `/lessons/${lessonID}`;
         requester.GET(path).then(

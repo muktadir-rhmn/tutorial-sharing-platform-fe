@@ -1,16 +1,17 @@
 import React from 'react';
-import {Route, Switch, useRouteMatch, useLocation, Link} from 'react-router-dom'
+import {Link, Route, Switch, useRouteMatch} from 'react-router-dom'
 
 import './style.css'
 import CreateTutorial from "./tutorial/create/CreateTutorial";
 import TutorialList from "./tutorial/list/TutorialList";
 import TutorialContentsRouter from "./tutorial/contents/TutorialContentsRouter";
 import AddUpdateLessonRouter from "./Lesson/AddUpdateLessonRouter";
+import userManager from "../user/UserManager";
 
 function AdminRouter (){
-    let { path, url } = useRouteMatch();
-    console.log(useRouteMatch())
-    console.log(useLocation())
+    if (!userManager.isSignedIn()) window.location.href = "/user/sign-in";
+
+    let { path } = useRouteMatch();
 
     return (
         <div>
@@ -85,7 +86,6 @@ function AdminRouter (){
 
         </div>
     );
-
 
 }
 
