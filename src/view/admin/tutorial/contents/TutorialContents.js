@@ -35,8 +35,10 @@ class TutorialContents extends React.Component{
         const contentRows = this.renderContentRows(tutorial.chapters);
         return (
             <div>
-                <h1>Contents: {tutorial.name}</h1>
-                <button onClick={event => this.addChapter(event) }>Add Chapter</button>
+                <h1><span className="badge badge-light"> Contents</span> {tutorial.name}</h1>
+                <div className="d-flex justify-content-end m-2">
+                    <button className="btn btn-success" onClick={event => this.addChapter(event) }>Add Chapter</button>
+                </div>
                 <table id={tutorial.id} onClick={event => this.handleTableClick(event)} className="table table-hover">
                     <tbody>
                     {contentRows}
