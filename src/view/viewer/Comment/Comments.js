@@ -40,6 +40,8 @@ class Comments extends React.Component{
     }
 
     fetchComments(lessonID) {
+        if (lessonID == null) return;
+
         const path = `/comments/${lessonID}`;
         requester.GET(path).then(
             (response) => {

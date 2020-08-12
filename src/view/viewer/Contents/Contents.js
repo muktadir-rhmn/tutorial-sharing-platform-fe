@@ -11,7 +11,8 @@ class Contents extends React.Component{
 
     render() {
         const tutorial = this.props.tutorial;
-        if (tutorial == null) return <div></div>;
+        if (tutorial == null) return <div />;
+        console.log("A");
 
         const contents = this.renderContents(tutorial.id, tutorial.chapters);
         return (
