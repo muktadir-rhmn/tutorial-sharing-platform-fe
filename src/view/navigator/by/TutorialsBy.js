@@ -12,7 +12,11 @@ class TutorialsBy extends React.Component{
     }
 
     render() {
-        return <TutorialCardList tutorials={this.state.tutorials} />;
+        return (
+            <div className="mt-5">
+                <TutorialCardList tutorials={this.state.tutorials} />
+            </div>
+        );
     }
 
     componentDidMount() {
@@ -20,7 +24,7 @@ class TutorialsBy extends React.Component{
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.itemID != prevProps.itemID) this.fetchTutorialsOfCategory(this.props.by, this.props.itemID);
+        if (this.props.itemID !== prevProps.itemID) this.fetchTutorialsOfCategory(this.props.by, this.props.itemID);
     }
 
     fetchTutorialsOfCategory(by, itemID) {

@@ -15,7 +15,7 @@ class LandingPage extends React.Component{
     render() {
 
         return (
-            <div>
+            <div className="mt-5">
                 <h1>Recent Tutorials</h1>
                 <TutorialCardList tutorials={this.state.recentTutorials}/>
             </div>

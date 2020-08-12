@@ -12,7 +12,7 @@ class TutorialCardList extends React.Component{
         const tutorialList = this.renderTutorialList(this.props.tutorials);
 
         return (
-            <div className="d-flex mt-5">
+            <div className="d-flex">
                 {tutorialList}
             </div>
         );
