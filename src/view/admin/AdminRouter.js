@@ -8,11 +8,19 @@ import TutorialContentsRouter from "./tutorial/contents/TutorialContentsRouter";
 import AddUpdateLessonRouter from "./Lesson/AddUpdateLessonRouter";
 import userManager from "../user/UserManager";
 import userPaths from "../user/UserPaths";
+import CreateUpdateCategory from "./hierarchy/CreateUpdateCategory";
+import adminPaths from "./AdminPaths";
 
 function AdminRouter (){
     if (!userManager.isSignedIn()) window.location.href = userPaths.signInPath();
 
     let { path } = useRouteMatch();
+
+    let adminItems = [];
+    if (userManager.isAdmin()) {
+        adminItems.push(<li key="1" className="menu-title">Hierarchy</li>);
+        adminItems.push(<li key="2"><Link to={adminPaths.createCategoryPath()}> <i className="menu-icon fa fa-table"></i> Create Category</Link></li>)
+    }
 
     return (
         <div>
@@ -23,6 +31,7 @@ function AdminRouter (){
                             <li>
                                 <Link to="/admin"> <i className="menu-icon fa fa-table"></i> Dashboard</Link>
                             </li>
+                            {adminItems}
                             <li className="menu-title">My Tutorials</li>
                             <li>
                                 <Link to="/admin/tutorials/create"> <i className="menu-icon fa fa-table"></i> Create Tutorial</Link>
@@ -59,6 +68,9 @@ function AdminRouter (){
                                     <Switch>
                                         <Route exact path={path}>
                                             Welcome to Admin Portal
+                                        </Route>
+                                        <Route exact path={`${path}/hierarchy/create-category`}>
+                                            <CreateUpdateCategory operation="create"/>
                                         </Route>
                                         <Route exact path={`${path}/tutorials/`}>
                                             <TutorialList/>

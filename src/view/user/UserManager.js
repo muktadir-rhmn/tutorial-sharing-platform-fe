@@ -3,6 +3,8 @@ const userManager = {
         return localStorage.getItem("token") !== null;
     },
 
+    isAdmin: () => localStorage.getItem("userType") === "admin",
+
     setSignedInUser: (token, userType, userID, userName) => {
         localStorage.setItem("token", token);
         localStorage.setItem("userID", userID);
