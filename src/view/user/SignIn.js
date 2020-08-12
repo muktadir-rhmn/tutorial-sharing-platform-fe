@@ -7,6 +7,7 @@ import Button from '../form/Button'
 import formDataCollector from "../../library/formDataCollector";
 import userManager from "./UserManager";
 import requester from "../../library/requester";
+import userPaths from "./UserPaths";
 
 class SignIn extends React.Component {
     constructor(props)  {
@@ -39,7 +40,7 @@ class SignIn extends React.Component {
                 <TextBox id="email" label="Email"/>
                 <PasswordBox id="password" label="Password"/>
                 <Button onClick={this.handleSignIn} label="Sign In"/><br/>
-                <div className="alreadySignedUp">No Account? </div>
+                <div className="alreadySignedUp">No Account? <Link to={userPaths.signUpPath()}>Sign Up</Link> </div>
             </div>
         );
     }

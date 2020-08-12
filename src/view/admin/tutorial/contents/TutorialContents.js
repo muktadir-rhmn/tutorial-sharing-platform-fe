@@ -2,6 +2,7 @@ import React from 'react';
 import requester from "../../../../library/requester";
 import './style.css'
 import {Link} from "react-router-dom";
+import adminPaths from "../../AdminPaths";
 
 class TutorialContents extends React.Component{
     constructor(props)  {
@@ -52,7 +53,7 @@ class TutorialContents extends React.Component{
                 <tr key={chapters[i].id} id={chapters[i].id} className="chapter-row">
                     <td>Chapter: {chapters[i].name}</td>
                     <td>
-                        <Link to={this.addLessonPath(this.state.tutorial.id, chapters[i].id)} className={"btn btn-outline-success"}>Add Lesson</Link>
+                        <Link to={adminPaths.addLessonPath(this.state.tutorial.id, chapters[i].id)} className={"btn btn-outline-success"}>Add Lesson</Link>
                     </td>
                 </tr>
             )
@@ -63,21 +64,13 @@ class TutorialContents extends React.Component{
         return contentRows;
     }
 
-    addLessonPath(tutorialID, chapterID) {
-        return `/admin/tutorials/${tutorialID}/${chapterID}/add-lesson`;
-    }
-
-    updateLessonPath(tutorialID, chapterID, lessonID) {
-        return `/admin/tutorials/${tutorialID}/${chapterID}/${lessonID}/update`;
-    }
-
     renderAndPushLessonRows(contentRows, chapterID, lessons) {
         for (let i = 0; i < lessons.length; i++) {
             const lessonRow = (
                 <tr className="lesson-row" id={lessons[i].id} key={lessons[i].id}>
                     <td>{lessons[i].name}</td>
                     <td>
-                        <Link to={this.updateLessonPath(this.state.tutorial.id, chapterID, lessons[i].id)} className={"btn btn-outline-success"}>Edit</Link>
+                        <Link to={adminPaths.updateLessonPath(this.state.tutorial.id, chapterID, lessons[i].id)} className={"btn btn-outline-success"}>Edit</Link>
                     </td>
                 </tr>
             );

@@ -7,7 +7,7 @@ import Comment from "./Comment/Comment";
 import requester from "../../library/requester";
 
 class TutorialViewer extends React.Component{
-    constructor(props)  {
+    constructor(props) {
         super(props);
 
         this.state = {

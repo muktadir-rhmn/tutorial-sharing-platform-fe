@@ -7,9 +7,10 @@ import TutorialList from "./tutorial/list/TutorialList";
 import TutorialContentsRouter from "./tutorial/contents/TutorialContentsRouter";
 import AddUpdateLessonRouter from "./Lesson/AddUpdateLessonRouter";
 import userManager from "../user/UserManager";
+import userPaths from "../user/UserPaths";
 
 function AdminRouter (){
-    if (!userManager.isSignedIn()) window.location.href = "/user/sign-in";
+    if (!userManager.isSignedIn()) window.location.href = userPaths.signInPath();
 
     let { path } = useRouteMatch();
 

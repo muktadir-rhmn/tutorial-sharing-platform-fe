@@ -1,6 +1,7 @@
 import React from 'react';
 import requester from "../../../../library/requester";
 import {Link} from "react-router-dom";
+import adminPaths from "../../AdminPaths";
 
 class TutorialList extends React.Component{
     constructor(props)  {
@@ -47,7 +48,7 @@ class TutorialList extends React.Component{
         return (
             <tr key={tutorial.id}>
                 <td>
-                    <Link to={`${tutorial.id}`}>{tutorial.name}</Link>
+                    <Link to={adminPaths.myTutorialListPath(tutorial.id)}>{tutorial.name}</Link>
                 </td>
                 <td>{tutorial.description}</td>
                 <td>

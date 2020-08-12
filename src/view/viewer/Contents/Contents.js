@@ -1,8 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import viewerPaths from "../ViewerPaths";
 
 class Contents extends React.Component{
-    constructor(props)  {
+    constructor(props) {
         super(props);
 
         this.state = {};
@@ -45,17 +46,13 @@ class Contents extends React.Component{
     renderLessonList(tutorialID, chapterID, lessons) {
         const lessonList = [];
         for (let i = 0; i < lessons.length; i++) {
-            const lessonLink = this.generateLessonLink(tutorialID, chapterID, lessons[i].id);
+            const lessonPath = viewerPaths.lessonPath(tutorialID, chapterID, lessons[i].id);
             const lesson = (
-                <li key={lessons[i].id}><Link to={lessonLink}>{lessons[i].name}</Link></li>
+                <li key={lessons[i].id}><Link to={lessonPath}>{lessons[i].name}</Link></li>
             )
             lessonList.push(lesson);
         }
         return lessonList;
-    }
-
-    generateLessonLink(tutorialID, chapterID, lessonID) {
-        return `/tutorials/${tutorialID}/${chapterID}/${lessonID}`;
     }
 }
 
