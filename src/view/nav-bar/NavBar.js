@@ -19,7 +19,7 @@ class NavBar extends React.Component{
 
         const categoryHierarchy = this.renderCategoryHierarchy(this.state.rootCategory.subcategories);
         return (
-            <div className="nav-area">
+            <div className="nav-area position-fixed vw-100">
                 {categoryHierarchy}
             </div>
         );

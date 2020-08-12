@@ -1,3 +1,7 @@
+.nav-area {
+    z-index: 100;
+    top: 0;
+}
 
 .nav-area li {
     list-style-type: none;
