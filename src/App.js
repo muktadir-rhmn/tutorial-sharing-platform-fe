@@ -7,7 +7,7 @@ import userManager from "./view/user/UserManager";
 import RoutingTest from "./view/RoutingTest";
 import AdminRouter from "./view/admin/AdminRouter";
 import ViewerMain from "./view/viewer/ViewerMain";
-import LandingPage from "./view/landing-page/LandingPage";
+import LandingPage from "./view/navigator/landing-page/LandingPage";
 import NavBar from "./view/nav-bar/NavBar";
 
 function App() {

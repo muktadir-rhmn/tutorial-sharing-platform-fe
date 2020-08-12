@@ -35,7 +35,7 @@ class NavBar extends React.Component{
 
             const curCategory = (
                 <li key={categories[i].id}>
-                    <Link to={navigatorPaths.categoryPath(categories[i].id)}>{categories[i].name} {directionIcon}</Link>
+                    <Link to={navigatorPaths.tutorialsByCategoryPath(categories[i].id)}>{categories[i].name} {directionIcon}</Link>
                     {subcategoryHierarchy}
                 </li>
             )
