@@ -22,10 +22,6 @@ class Lesson extends React.Component{
         );
     }
 
-    componentDidMount() {
-        this.fetchLesson(this.props.lessonID);
-    }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.lessonID !== this.props.lessonID) this.fetchLesson(this.props.lessonID);
     }

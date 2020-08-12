@@ -35,10 +35,6 @@ class Comments extends React.Component{
         return commentList;
     }
 
-    componentDidMount() {
-        this.fetchComments(this.props.lessonID);
-    }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.lessonID !== this.props.lessonID) this.fetchComments(this.props.lessonID);
     }

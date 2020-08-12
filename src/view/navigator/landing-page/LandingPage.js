@@ -18,7 +18,9 @@ class LandingPage extends React.Component{
         return (
             <div>
                 <h1>Recent Tutorials</h1>
-                {tutorialList}
+                <div className="d-flex">
+                    {tutorialList}
+                </div>
             </div>
         );
     }
@@ -26,7 +28,7 @@ class LandingPage extends React.Component{
     renderTutorialList(tutorials) {
         const tutorialList = [];
         for (let i = 0 ; i < tutorials.length; i++) {
-            tutorialList.push(<TutorialCard tutorial={tutorials[i]}/>);
+            tutorialList.push(<TutorialCard key={tutorials[i].id} tutorial={tutorials[i]}/>);
         }
         return tutorialList;
     }
