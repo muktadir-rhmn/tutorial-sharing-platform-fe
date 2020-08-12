@@ -7,6 +7,8 @@ import userManager from "./view/user/UserManager";
 import RoutingTest from "./view/RoutingTest";
 import AdminRouter from "./view/admin/AdminRouter";
 import ViewerMain from "./view/viewer/ViewerMain";
+import LandingPage from "./view/landing-page/LandingPage";
+import NavBar from "./view/nav-bar/NavBar";
 
 function App() {
     let userName = "";
@@ -17,12 +19,12 @@ function App() {
     }
   return (
     <div className="App">
+
         <Router>
+            <NavBar />
             <Switch>
                 <Route exact path="/">
-                    <h1>Hello, {userName}!</h1>
-                    <div> This is the first page</div>
-                    <button onClick={() => {userManager.removeSignedInUser(); window.location.reload();} }>Logout</button>
+                    <LandingPage />
                 </Route>
                 <Route path="/user/sign-in">
                     <SignIn />

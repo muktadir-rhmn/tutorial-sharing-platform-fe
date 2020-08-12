@@ -1,0 +1,56 @@
+
+.nav-area li {
+    list-style-type: none;
+}
+
+.nav-area > ul > li {
+    display: inline;
+    position: relative;
+}
+
+.nav-area a {
+    color: #ba8b00;
+}
+
+.nav-area ul ul a {
+    display: block;
+}
+
+.nav-area > ul,
+.nav-area > ul > li {
+    padding: 1em;
+}
+
+.nav-area ul {
+    background-color: #d1ecf1;
+    box-shadow: 2px 3px 5px #95999c;
+}
+
+.nav-area li:hover {
+    background-color: #b1dfbb;
+}
+
+.nav-area ul ul li {
+    padding: 1em;
+}
+
+.nav-area ul ul {
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 100%;
+    min-width: 200px;
+}
+
+.nav-area ul ul li {
+    position: relative;
+}
+
+.nav-area ul li:hover > ul{
+    display: block;
+}
+
+.nav-area ul ul ul {
+    left: 100%;
+    top: 0;
+}

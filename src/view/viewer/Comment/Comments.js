@@ -14,6 +14,8 @@ class Comments extends React.Component{
     }
 
     render() {
+        if (this.props.lessonID == null) return <div/>;
+
         const commentList = this.renderComments(this.state.comments);
         return (
             <div className="mt-5">
