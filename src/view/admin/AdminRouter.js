@@ -45,7 +45,7 @@ function AdminRouter (){
                     <div className="top-right">
                         <div className="header-menu">
                             <div className="header-left">
-                                <button className="btn btn-danger">Logout</button>
+                                <button className="btn btn-danger" onClick={() => {userManager.removeSignedInUser(); window.location.href = userPaths.signInPath();}}>Logout</button>
                             </div>
                         </div>
                     </div>
