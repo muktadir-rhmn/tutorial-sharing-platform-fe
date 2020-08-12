@@ -27,6 +27,7 @@ ul.lesson-list li:hover {
 
 ul.lesson-list li a {
     display: block;
+    color: #ba8b00;
 }
 
 .chapter-name {
