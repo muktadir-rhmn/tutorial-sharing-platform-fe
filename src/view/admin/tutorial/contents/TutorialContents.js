@@ -51,7 +51,7 @@ class TutorialContents extends React.Component{
         for (let i = 0; i < chapters.length; i++) {
             const chapterRow = (
                 <tr key={chapters[i].id} id={chapters[i].id} className="chapter-row">
-                    <td>Chapter: {chapters[i].name}</td>
+                    <td><span className="badge badge-success">Chapter</span> {chapters[i].name}</td>
                     <td>
                         <Link to={adminPaths.addLessonPath(this.state.tutorial.id, chapters[i].id)} className={"btn btn-outline-success"}>Add Lesson</Link>
                     </td>
