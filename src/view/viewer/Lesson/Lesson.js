@@ -22,11 +22,17 @@ class Lesson extends React.Component{
         );
     }
 
+    componentDidMount() {
+        this.fetchLesson(this.props.lessonID);
+    }
+
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.lessonID !== this.props.lessonID) this.fetchLesson(this.props.lessonID);
     }
 
     fetchLesson(lessonID) {
+        if (lessonID === null) return;
+
         const path = `/lessons/${lessonID}`;
         requester.GET(path).then(
             (lesson) => {
