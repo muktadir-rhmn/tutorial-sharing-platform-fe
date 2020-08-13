@@ -1,6 +1,7 @@
 import React from 'react';
 import formDataCollector from "../../../library/formDataCollector";
 import requester from "../../../library/requester";
+import userManager from "../../user/UserManager";
 
 class LessonNote extends React.Component{
     constructor(props)  {
@@ -12,6 +13,7 @@ class LessonNote extends React.Component{
     }
 
     render() {
+        if (!userManager.isSignedIn()) return <div/>;
         if (this.props.lessonID == null) return <div/>;
 
         return (
