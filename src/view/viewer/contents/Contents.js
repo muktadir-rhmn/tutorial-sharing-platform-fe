@@ -49,7 +49,7 @@ class Contents extends React.Component{
         for (let i = 0; i < lessons.length; i++) {
             const lessonPath = viewerPaths.lessonPath(tutorialID, chapterID, lessons[i].id);
             const lesson = (
-                <li key={lessons[i].id}><Link to={lessonPath}>{lessons[i].name}</Link></li>
+                <li key={lessons[i].id} className={this.props.curLessonID === lessons[i].id ? "active" : ""}><Link to={lessonPath}>{lessons[i].name}</Link></li>
             )
             lessonList.push(lesson);
         }

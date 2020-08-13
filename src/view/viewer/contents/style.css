@@ -22,7 +22,7 @@
 }
 
 ul.lesson-list li:hover {
-    background-color: #d1ecf1;
+    background-color: #e4e7e4;
 }
 
 ul.lesson-list li a {
@@ -34,4 +34,8 @@ ul.lesson-list li a {
     background-color: darksalmon;
     padding: 5px;
     border-radius: 5px;
+}
+
+li.active {
+    background-color: #b1dfbb;
 }

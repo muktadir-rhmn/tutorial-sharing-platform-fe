@@ -21,7 +21,7 @@ class TutorialViewer extends React.Component{
             <div className="container" style={{marginTop: "5em"}}>
                 <div className="row">
                     <div className="col-3">
-                        <Contents tutorial={this.state.tutorial}/>
+                        <Contents tutorial={this.state.tutorial} curLessonID={this.props.lessonID}/>
                     </div>
                     <div className="col-7">
                         <div className="row">
