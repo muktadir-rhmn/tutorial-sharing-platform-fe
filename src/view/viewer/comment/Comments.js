@@ -20,7 +20,7 @@ class Comments extends React.Component{
         return (
             <div className="mt-5">
                 {commentList}
-                <CommentBox lessonID={this.props.lessonID}/>
+                <CommentBox lessonID={this.props.lessonID} notifyNewComment={() => window.location.reload()}/>
             </div>
         );
     }

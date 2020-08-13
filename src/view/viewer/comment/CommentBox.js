@@ -34,7 +34,7 @@ class CommentBox extends React.Component{
         }
         requester.POST(path, requestBody).then(
             (response) => {
-                alert("Successfully Added comment with id " + response.commentID);
+                this.props.notifyNewComment();
             },
             (error) => {
                 console.error(error);
