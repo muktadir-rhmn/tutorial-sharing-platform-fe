@@ -1,10 +1,11 @@
 import React from 'react';
 
-import './Contents/style.css';
-import Contents from "./Contents/Contents";
-import Lesson from "./Lesson/Lesson";
-import Comments from "./Comment/Comments";
+import './contents/style.css';
+import Contents from "./contents/Contents";
+import Lesson from "./lesson/Lesson";
+import Comments from "./comment/Comments";
 import requester from "../../library/requester";
+import LessonNote from "./note/LessonNote";
 
 class TutorialViewer extends React.Component{
     constructor(props) {
@@ -17,12 +18,12 @@ class TutorialViewer extends React.Component{
 
     render() {
         return (
-            <div className="container mt-5">
+            <div className="container" style={{marginTop: "5em"}}>
                 <div className="row">
                     <div className="col-3">
                         <Contents tutorial={this.state.tutorial}/>
                     </div>
-                    <div className="col-9">
+                    <div className="col-7">
                         <div className="row">
                             <div className="col">
                                 <Lesson tutorialID={this.props.tutorialID} chapterID={this.props.chapterID} lessonID={this.props.lessonID}/>
@@ -33,6 +34,9 @@ class TutorialViewer extends React.Component{
                                 <Comments tutorialID={this.props.tutorialID} chapterID={this.props.chapterID} lessonID={this.props.lessonID}/>
                             </div>
                         </div>
+                    </div>
+                    <div className="col-2">
+                        <LessonNote lessonID={this.props.lessonID}/>
                     </div>
                 </div>
             </div>

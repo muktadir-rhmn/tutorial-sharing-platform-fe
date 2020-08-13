@@ -64,7 +64,7 @@ class AddUpdateLesson extends React.Component{
             path = `/lessons/${this.props.lessonID}`;
             requester.POST(path, data).then(
                 (response) => {
-                    alert("Lesson updated successfully");
+                    alert("lesson updated successfully");
                 }
             );
         } else {
@@ -73,7 +73,7 @@ class AddUpdateLesson extends React.Component{
             data["chapterID"] = this.props.chapterID;
             requester.POST(path, data).then(
                 (response) => {
-                    alert("Lesson Added successfully");
+                    alert("lesson Added successfully");
                 }
             )
         }
