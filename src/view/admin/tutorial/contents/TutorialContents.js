@@ -39,7 +39,7 @@ class TutorialContents extends React.Component{
                 <div className="d-flex justify-content-end m-2">
                     <button className="btn btn-success" onClick={event => this.addChapter(event) }>Add Chapter</button>
                 </div>
-                <table id={tutorial.id} onClick={event => this.handleTableClick(event)} className="table table-hover">
+                <table id={tutorial.id} className="table table-hover">
                     <tbody>
                     {contentRows}
                     </tbody>
@@ -56,6 +56,7 @@ class TutorialContents extends React.Component{
                     <td><span className="badge badge-success">Chapter</span> {chapters[i].name}</td>
                     <td>
                         <Link to={adminPaths.addLessonPath(this.state.tutorial.id, chapters[i].id)} className={"btn btn-outline-success"}>Add Lesson</Link>
+                        <button className="btn btn-outline-success" onClick={(event => this.updateChapter(chapters[i]))}>Edit</button>
                     </td>
                 </tr>
             )
@@ -96,8 +97,24 @@ class TutorialContents extends React.Component{
         )
     }
 
-    handleTableClick(event) {
+    updateChapter(chapter) {
+        const newChapterName = prompt("Enter new chapter name:", chapter.name);
+        if(newChapterName === null || newChapterName === "") return;
 
+        const path = `/tutorials/${this.state.tutorial.id}/${chapter.id}`;
+        requester.POST(path, {name: newChapterName}).then(
+            (response) => {
+                alert("Updated");
+
+                const chapters = this.state.tutorial.chapters;
+                for(let i = 0; i < chapters.length; i++){
+                    if (chapters[i].id === chapter.id) {
+                        chapters[i].name = newChapterName;
+                    }
+                }
+                this.setState({});
+            }
+        )
     }
 }
 
