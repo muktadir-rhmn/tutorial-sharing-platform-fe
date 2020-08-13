@@ -52,7 +52,8 @@ class TutorialList extends React.Component{
                 </td>
                 <td>{tutorial.description}</td>
                 <td>
-                    <Link className="btn btn-outline-success" to={adminPaths.updateTutorialPath(tutorial.id)}>Edit</Link>
+                    <Link className="btn btn-outline-success" to={adminPaths.updateTutorialPath(tutorial.id)}>
+                        <i className="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</Link>
                 </td>
             </tr>
         )

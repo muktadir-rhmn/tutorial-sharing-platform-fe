@@ -18,10 +18,11 @@ class LessonNote extends React.Component{
 
         return (
             <div id="note-form" className="bg-light p-2 position-fixed">
-                <h3>Note</h3>
+                <h3><i className="fa fa-sticky-note-o" aria-hidden="true"></i> Note</h3>
                 <textarea id="note" className="form-control" rows="15" defaultValue={this.state.note} />
                 <div className="d-flex justify-content-end mt-2">
-                    <button className="btn btn-success" onClick={(event) => this.saveNote(event)}>Save</button>
+                    <button className="btn btn-success" onClick={(event) => this.saveNote(event)}>
+                        <i className="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
                 </div>
             </div>
         );

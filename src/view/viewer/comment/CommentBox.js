@@ -16,7 +16,8 @@ class CommentBox extends React.Component{
             <div className="comment-box card p-2 mt-3">
                 <textarea className="form-control"/>
                 <div className="d-flex justify-content-end mt-1">
-                    <button className="btn btn-success" onClick={(event) => this.addComment(event)}>Comment</button>
+                    <button className="btn btn-success" onClick={(event) => this.addComment(event)}>
+                        <i className="fa fa-paper-plane" aria-hidden="true"></i> Comment</button>
                 </div>
             </div>
         );

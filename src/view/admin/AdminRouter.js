@@ -21,8 +21,8 @@ function AdminRouter (){
     let adminItems = [];
     if (userManager.isAdmin()) {
         adminItems.push(<li key="1" className="menu-title">Hierarchy</li>);
-        adminItems.push(<li key="2"><Link to={adminPaths.createCategoryPath()}> <i className="menu-icon fa fa-table"></i> Create Category</Link></li>)
-        adminItems.push(<li key="3"><Link to={adminPaths.updateCategoryPath()}> <i className="menu-icon fa fa-table"></i> Update Category</Link></li>)
+        adminItems.push(<li key="2"><Link to={adminPaths.createCategoryPath()}> <i className="menu-icon fa fa-sitemap" aria-hidden="true"></i> Create Category</Link></li>)
+        adminItems.push(<li key="3"><Link to={adminPaths.updateCategoryPath()}> <i className="menu-icon fa fa-sitemap" aria-hidden="true"></i> Update Category</Link></li>)
     }
 
     return (
@@ -37,10 +37,10 @@ function AdminRouter (){
                             {adminItems}
                             <li className="menu-title">My Tutorials</li>
                             <li>
-                                <Link to="/admin/tutorials/create"> <i className="menu-icon fa fa-table"></i> Create Tutorial</Link>
+                                <Link to="/admin/tutorials/create"> <i className="menu-icon fa fa-plus" aria-hidden="true"></i> Create Tutorial</Link>
                             </li>
                             <li>
-                                <Link to="/admin/tutorials/"> <i className="menu-icon fa fa-table"></i> Tutorial List</Link>
+                                <Link to="/admin/tutorials/"> <i className="menu-icon fa fa-list" aria-hidden="true"></i> Tutorial List</Link>
                             </li>
                         </ul>
                     </div>
@@ -57,7 +57,8 @@ function AdminRouter (){
                     <div className="top-right">
                         <div className="header-menu">
                             <div className="header-left">
-                                <button className="btn btn-danger" onClick={() => {userManager.removeSignedInUser(); window.location.href = userPaths.signInPath();}}>Logout</button>
+                                <button className="btn btn-danger" onClick={() => {userManager.removeSignedInUser(); window.location.href = userPaths.signInPath();}}>
+                                    <i className="fa fa-sign-out" aria-hidden="true"></i> Sign Out</button>
                             </div>
                         </div>
                     </div>

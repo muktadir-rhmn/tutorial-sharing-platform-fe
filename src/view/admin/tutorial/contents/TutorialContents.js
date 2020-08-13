@@ -37,7 +37,8 @@ class TutorialContents extends React.Component{
             <div>
                 <h1><span className="badge badge-light"> Contents</span> {tutorial.name}</h1>
                 <div className="d-flex justify-content-end m-2">
-                    <button className="btn btn-success" onClick={event => this.addChapter(event) }>Add Chapter</button>
+                    <button className="btn btn-success" onClick={event => this.addChapter(event) }>
+                        <i className="fa fa-plus" aria-hidden="true"></i> Add Chapter</button>
                 </div>
                 <table id={tutorial.id} className="table table-hover">
                     <tbody>
@@ -55,8 +56,10 @@ class TutorialContents extends React.Component{
                 <tr key={chapters[i].id} id={chapters[i].id} className="chapter-row">
                     <td><span className="badge badge-success">Chapter</span> {chapters[i].name}</td>
                     <td>
-                        <Link to={adminPaths.addLessonPath(this.state.tutorial.id, chapters[i].id)} className={"btn btn-outline-success"}>Add Lesson</Link>
-                        <button className="btn btn-outline-success" onClick={(event => this.updateChapter(chapters[i]))}>Edit</button>
+                        <Link to={adminPaths.addLessonPath(this.state.tutorial.id, chapters[i].id)} className={"btn btn-outline-success"}>
+                            <i className="fa fa-plus" aria-hidden="true"></i> Add Lesson</Link>
+                        <button className="btn btn-outline-success" onClick={(event => this.updateChapter(chapters[i]))}>
+                            <i className="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
                     </td>
                 </tr>
             )
@@ -73,7 +76,8 @@ class TutorialContents extends React.Component{
                 <tr className="lesson-row" id={lessons[i].id} key={lessons[i].id}>
                     <td>{lessons[i].name}</td>
                     <td>
-                        <Link to={adminPaths.updateLessonPath(this.state.tutorial.id, chapterID, lessons[i].id)} className={"btn btn-outline-success"}>Edit</Link>
+                        <Link to={adminPaths.updateLessonPath(this.state.tutorial.id, chapterID, lessons[i].id)} className={"btn btn-outline-success"}>
+                            <i className="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</Link>
                     </td>
                 </tr>
             );
