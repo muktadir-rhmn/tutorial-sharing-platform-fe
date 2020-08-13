@@ -18,7 +18,7 @@ class CreateUpdateCategory extends React.Component{
         return (
             <div>
                 <h1>Create Category</h1>
-                <div id="create-tutorial-form">
+                <div id="create-update-category-form">
                     <TextBox id="name" label="Name"/>
                     <HierarchyCombobox id="pathFromRoot" label="Parent Category" includeRoot={true}/>
                     <Button label="Create" onClick={(event) => this.createCategory(event)}/>
@@ -28,8 +28,9 @@ class CreateUpdateCategory extends React.Component{
     }
 
     createCategory(event) {
-        const data = formDataCollector.collect("create-tutorial-form");
+        const data = formDataCollector.collect("create-update-category-form");
         data.pathFromRoot = data.pathFromRoot.split(":");
+        console.log(data);
 
         const path = `/hierarchy/create-category`;
         requester.POST(path, data).then(

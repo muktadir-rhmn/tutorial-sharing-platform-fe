@@ -14,28 +14,27 @@ class HierarchyCombobox extends React.Component{
         const rootCategory = this.state.rootCategory;
         const options = [];
         if (rootCategory != null) {
-            let categories = this.props.includeRoot ? [rootCategory] : rootCategory.subcategories
-            this.renderCategoryOptions(options, categories, rootCategory.id);
+            if (this.props.includeRoot) options.push( <option key={rootCategory.id} value={rootCategory.id} >{rootCategory.name}</option>);
+            this.renderCategoryOptions(options, rootCategory.subcategories, this.props.value, rootCategory.id);
         }
 
         return (
             <div>
                 <label form={this.props.id}>{this.props.label}</label>
-                <select id={this.props.id} className="form-control">{options}</select>
+                <select defaultValue={this.props.value} id={this.props.id} className="form-control">{options}</select>
             </div>
         );
     }
 
-    renderCategoryOptions(options, categories, path, indentation="") {
+    renderCategoryOptions(options, categories, selectedValue, path, indentation="") {
         for (let i = 0; i < categories.length; i++) {
             const option = (
-                <option key={categories[i].id} value={`${path}:${categories[i].id}`}>{`${indentation}${categories[i].name}`}</option>
+                <option key={categories[i].id} value={`${path}:${categories[i].id}`} selected={selectedValue === categories[i].id}>{`${indentation}${categories[i].name}`}</option>
             )
 
             options.push(option);
 
-            const newPath = path + categories[i].id;
-            this.renderCategoryOptions(options, categories[i].subcategories, newPath, indentation + "---");
+            this.renderCategoryOptions(options, categories[i].subcategories, selectedValue, path + ":" + categories[i].id, indentation + "---");
         }
     }
 

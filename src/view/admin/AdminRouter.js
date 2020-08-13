@@ -2,7 +2,7 @@ import React from 'react';
 import {Link, Route, Switch, useRouteMatch} from 'react-router-dom'
 
 import './style.css'
-import CreateTutorial from "./tutorial/create/CreateTutorial";
+import CreateUpdateTutorial from "./tutorial/create-update/CreateUpdateTutorial";
 import TutorialList from "./tutorial/list/TutorialList";
 import TutorialContentsRouter from "./tutorial/contents/TutorialContentsRouter";
 import AddUpdateLessonRouter from "./Lesson/AddUpdateLessonRouter";
@@ -10,6 +10,7 @@ import userManager from "../user/UserManager";
 import userPaths from "../user/UserPaths";
 import CreateUpdateCategory from "./hierarchy/CreateUpdateCategory";
 import adminPaths from "./AdminPaths";
+import UpdateTutorialRouter from "./tutorial/create-update/UpdateTutorialRouter";
 
 function AdminRouter (){
     if (!userManager.isSignedIn()) window.location.href = userPaths.signInPath();
@@ -76,7 +77,10 @@ function AdminRouter (){
                                             <TutorialList/>
                                         </Route>
                                         <Route path={`${path}/tutorials/create`}>
-                                            <CreateTutorial/>
+                                            <CreateUpdateTutorial isUpdate={false}/>
+                                        </Route>
+                                        <Route exact path={`${path}/tutorials/:tutorialID/update`}>
+                                            <UpdateTutorialRouter/>
                                         </Route>
                                         <Route exact path={`${path}/tutorials/:tutorialID`}>
                                             <TutorialContentsRouter/>

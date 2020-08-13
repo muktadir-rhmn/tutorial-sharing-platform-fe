@@ -52,7 +52,7 @@ class TutorialList extends React.Component{
                 </td>
                 <td>{tutorial.description}</td>
                 <td>
-                    <button>Edit</button>
+                    <Link className="btn btn-outline-success" to={adminPaths.updateTutorialPath(tutorial.id)}>Edit</Link>
                 </td>
             </tr>
         )
