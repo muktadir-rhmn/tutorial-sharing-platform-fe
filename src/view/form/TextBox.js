@@ -2,6 +2,14 @@ import React from 'react';
 import './style.css'
 
 class TextBox extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            value: "",
+        };
+    }
+
     render() {
         let description = ""
         if(this.props.description) {
@@ -16,10 +24,18 @@ class TextBox extends React.Component {
         return (
             <div className="form-group">
                 <label htmlFor={this.props.id}>{this.props.label} {description}</label>
-                <input className="form-input form-control" type="text" id={this.props.id} value={this.props.value} onChange={()=>""}/>
+                <input className="form-input form-control" type="text" id={this.state.id} value={this.state.value} onChange={event => this.setState({value: event.target.value})}/>
                 {errorMessage}
             </div>
         )
+    }
+
+    componentDidMount() {
+        this.setState({value: this.props.value});
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.value !== prevProps.value) this.setState({value: this.props.value});
     }
 }
 
