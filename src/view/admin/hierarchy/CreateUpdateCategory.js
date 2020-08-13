@@ -20,7 +20,7 @@ class CreateUpdateCategory extends React.Component{
                 <h1>Create Category</h1>
                 <div id="create-tutorial-form">
                     <TextBox id="name" label="Name"/>
-                    <HierarchyCombobox id="pathFromRoot" includeRoot={true}/>
+                    <HierarchyCombobox id="pathFromRoot" label="Parent Category" includeRoot={true}/>
                     <Button label="Create" onClick={(event) => this.createCategory(event)}/>
                 </div>
             </div>

@@ -24,7 +24,7 @@ class CreateTutorial extends React.Component{
                 <div id="create-tutorial-form">
                     <TextBox id="name" label="Name"/>
                     <TextArea id="description" label="Description" />
-                    <HierarchyCombobox id="categoryID" includeRoot={false}/>
+                    <HierarchyCombobox id="categoryID" label="Category" includeRoot={false}/>
                     <Button label="Create" onClick={(event) => this.createTutorial(event)}/>
                 </div>
             </div>

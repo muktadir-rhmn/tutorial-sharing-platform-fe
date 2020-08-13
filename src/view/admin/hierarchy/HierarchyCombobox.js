@@ -20,7 +20,7 @@ class HierarchyCombobox extends React.Component{
 
         return (
             <div>
-                <label form={this.props.id}>Category</label>
+                <label form={this.props.id}>{this.props.label}</label>
                 <select id={this.props.id} className="form-control">{options}</select>
             </div>
         );
