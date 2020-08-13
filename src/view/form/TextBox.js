@@ -16,7 +16,7 @@ class TextBox extends React.Component {
         return (
             <div className="form-group">
                 <label htmlFor={this.props.id}>{this.props.label} {description}</label>
-                <input className="form-input form-control" type="text" id={this.props.id} defaultValue={this.props.value}/>
+                <input className="form-input form-control" type="text" id={this.props.id} value={this.props.value} onChange={()=>""}/>
                 {errorMessage}
             </div>
         )

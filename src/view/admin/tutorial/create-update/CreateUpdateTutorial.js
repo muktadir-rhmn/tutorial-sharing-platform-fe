@@ -54,11 +54,11 @@ class CreateUpdateTutorial extends React.Component{
     }
 
     componentDidMount() {
-        this.fetchTutorial(this.props.tutorialID);
+        if (this.props.isUpdate) this.fetchTutorial(this.props.tutorialID);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.props.tutorialID !== prevProps.tutorialID)this.fetchTutorial(this.props.tutorialID);
+        if(this.props.isUpdate && this.props.tutorialID !== prevProps.tutorialID)this.fetchTutorial(this.props.tutorialID);
     }
 
     fetchTutorial(tutorialID) {

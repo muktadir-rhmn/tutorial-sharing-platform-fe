@@ -11,6 +11,7 @@ import userPaths from "../user/UserPaths";
 import CreateUpdateCategory from "./hierarchy/CreateUpdateCategory";
 import adminPaths from "./AdminPaths";
 import UpdateTutorialRouter from "./tutorial/create-update/UpdateTutorialRouter";
+import UpdateCategory from "./hierarchy/UpdateCategory";
 
 function AdminRouter (){
     if (!userManager.isSignedIn()) window.location.href = userPaths.signInPath();
@@ -21,6 +22,7 @@ function AdminRouter (){
     if (userManager.isAdmin()) {
         adminItems.push(<li key="1" className="menu-title">Hierarchy</li>);
         adminItems.push(<li key="2"><Link to={adminPaths.createCategoryPath()}> <i className="menu-icon fa fa-table"></i> Create Category</Link></li>)
+        adminItems.push(<li key="3"><Link to={adminPaths.updateCategoryPath()}> <i className="menu-icon fa fa-table"></i> Update Category</Link></li>)
     }
 
     return (
@@ -71,7 +73,10 @@ function AdminRouter (){
                                             Welcome to Admin Portal
                                         </Route>
                                         <Route exact path={`${path}/hierarchy/create-category`}>
-                                            <CreateUpdateCategory operation="create"/>
+                                            <CreateUpdateCategory isUpdate={false}/>
+                                        </Route>
+                                        <Route exact path={`${path}/hierarchy/update-category`}>
+                                            <UpdateCategory />
                                         </Route>
                                         <Route exact path={`${path}/tutorials/`}>
                                             <TutorialList/>

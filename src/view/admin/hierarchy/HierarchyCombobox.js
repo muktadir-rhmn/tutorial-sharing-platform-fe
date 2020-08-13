@@ -21,7 +21,10 @@ class HierarchyCombobox extends React.Component{
         return (
             <div>
                 <label form={this.props.id}>{this.props.label}</label>
-                <select defaultValue={this.props.value} id={this.props.id} className="form-control">{options}</select>
+                <select defaultValue={this.props.value}
+                        id={this.props.id}
+                        onChange={(event => this.handleComboboxItemChange(event))}
+                        className="form-control">{options}</select>
             </div>
         );
     }
@@ -48,9 +51,20 @@ class HierarchyCombobox extends React.Component{
             (rootCategory) => {
                 this.setState({
                     rootCategory: rootCategory
-                })
+                });
             }
         )
+    }
+
+    handleComboboxItemChange(event) {
+        if (!this.props.onChange) return;
+
+        const combobox = event.target;
+
+        const curCategoryIDPath = combobox.value;
+        const curCategoryName = combobox.options[combobox.selectedIndex].text.replace(new RegExp("-*"), "");
+
+        this.props.onChange(curCategoryName, curCategoryIDPath);
     }
 }
 
