@@ -26,12 +26,23 @@ class CommentBox extends React.Component{
         const commentBodyText = getCommentBox(event.target);
 
         const commentBody = commentBodyText.value;
-        const path = `/comments`;
 
-        const requestBody = {
-            lessonID: this.props.lessonID,
-            commentBody: commentBody,
+        let path;
+        let requestBody;
+        if (this.props.operation === "add") {
+            path = `/comments`;
+            requestBody = {
+                lessonID: this.props.itemID,
+                commentBody: commentBody,
+            }
+        } else if (this.props.operation === "reply") {
+            path = `/comments/${this.props.itemID}/add-reply`;
+            requestBody = {
+                commentBody: commentBody
+            }
         }
+
+        console.log(requestBody);
         requester.POST(path, requestBody).then(
             (response) => {
                 this.props.notifyNewComment();

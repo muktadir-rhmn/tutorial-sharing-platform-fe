@@ -19,6 +19,10 @@ class Comment extends React.Component{
                 </div>
 
                 <p>{comment.body}</p>
+
+                <div className="d-flex justify-content-end">
+                    <button className="btn btn-outline-success" onClick={(event) => this.props.notifyClickOnReply(this.props.comment.id)}>Reply</button>
+                </div>
             </div>
         );
     }
