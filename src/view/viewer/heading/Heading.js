@@ -1,4 +1,5 @@
 import React from 'react';
+import Rater from "./Rater";
 
 class Heading extends React.Component{
     constructor(props) {
@@ -15,6 +16,7 @@ class Heading extends React.Component{
             <div className="heading">
                 <h3>{tutorial.name}</h3>
                 <h5 className="text-center text-secondary">{tutorial.authorName}</h5>
+                <Rater tutorialID={tutorial.id}/>
             </div>
         );
     }

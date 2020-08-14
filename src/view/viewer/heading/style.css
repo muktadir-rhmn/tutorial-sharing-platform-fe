@@ -1,0 +1,16 @@
+.rater {
+    color: #155724;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.rater .star:hover,
+.rater .star:hover ~ .star {
+    color: #ba8b00;
+}
+
+.cur-rating,
+.cur-rating ~ i{
+    color: #ba8b00;
+}
