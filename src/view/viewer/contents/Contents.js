@@ -16,14 +16,8 @@ class Contents extends React.Component{
 
         const contents = this.renderContents(tutorial.id, tutorial.chapters);
         return (
-            <div className="contents-section position-fixed">
-                <div className="heading">
-                    <h3>{tutorial.name}</h3>
-                    <h5 className="text-center text-secondary">{tutorial.authorName}</h5>
-                </div>
-                <div className="contents mt-3">
-                    <ul>{contents}</ul>
-                </div>
+            <div className="contents mt-3">
+                <ul>{contents}</ul>
             </div>
         );
     }
