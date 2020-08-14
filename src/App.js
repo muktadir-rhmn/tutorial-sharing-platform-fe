@@ -15,13 +15,22 @@ function App() {
     <div className="App">
 
         <Router>
-            <NavBar />
             <Switch>
                 <Route exact path="/">
+                    <NavBar />
                     <LandingPage />
                 </Route>
                 <Route path="/browse/:by/:itemID">
+                    <NavBar />
                     <TutorialsByRouter />
+                </Route>
+                <Route path="/tutorials/:tutorialID/:chapterID/:lessonID" >
+                    <NavBar />
+                    <ViewerMain/>
+                </Route>
+                <Route path="/tutorials/:tutorialID" >
+                    <NavBar />
+                    <ViewerMain/>
                 </Route>
                 <Route path="/user/sign-in">
                     <SignIn />
@@ -31,15 +40,6 @@ function App() {
                 </Route>
                 <Route path="/admin">
                     <AdminRouter />
-                </Route>
-                <Route path="/tutorials/:tutorialID/:chapterID/:lessonID" >
-                    <ViewerMain/>
-                </Route>
-                <Route path="/tutorials/:tutorialID" >
-                    <ViewerMain/>
-                </Route>
-                <Route path="/test">
-                    <RoutingTest/>
                 </Route>
             </Switch>
         </Router>

@@ -15,7 +15,7 @@ class LandingPage extends React.Component{
     render() {
 
         return (
-            <div className="mt-5">
+            <div style={{marginTop: "150px"}}>
                 <h1>Recent Tutorials</h1>
                 <TutorialCardList tutorials={this.state.recentTutorials}/>
             </div>

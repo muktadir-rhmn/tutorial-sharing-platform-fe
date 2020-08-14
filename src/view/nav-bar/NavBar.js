@@ -4,6 +4,7 @@ import './style.css';
 import {Link} from "react-router-dom";
 import navigatorPaths from "../navigator/NavigatorPaths";
 import requester from "../../library/requester";
+import UserBar from "./UserBar";
 
 class NavBar extends React.Component{
     constructor(props)  {
@@ -20,6 +21,7 @@ class NavBar extends React.Component{
         const categoryHierarchy = this.renderCategoryHierarchy(this.state.rootCategory.subcategories);
         return (
             <div className="nav-area position-fixed vw-100">
+                <UserBar/>
                 {categoryHierarchy}
             </div>
         );

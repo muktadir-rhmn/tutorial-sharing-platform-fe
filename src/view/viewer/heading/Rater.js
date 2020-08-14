@@ -2,6 +2,7 @@ import React from 'react';
 
 import './style.css';
 import requester from "../../../library/requester";
+import userManager from "../../user/UserManager";
 
 class Rater extends React.Component{
     constructor(props) {
@@ -14,6 +15,7 @@ class Rater extends React.Component{
     }
 
     render() {
+        if (!userManager.isSignedIn()) return <div/>
         if (this.state.hasRated == null) return <div/>;
 
         const stars = this.renderStars(this.state.hasRated, this.state.rating);

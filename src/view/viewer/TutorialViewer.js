@@ -19,7 +19,7 @@ class TutorialViewer extends React.Component{
 
     render() {
         return (
-            <div className="container" style={{marginTop: "5em"}}>
+            <div className="container" style={{marginTop: "150px"}}>
                 <div className="row">
                     <div className="col-3">
                         <div className="contents-section position-fixed">

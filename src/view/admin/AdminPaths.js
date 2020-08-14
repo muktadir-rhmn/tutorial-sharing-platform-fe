@@ -1,4 +1,5 @@
 const adminPaths = {
+    rootPath: () => `/admin`,
     createCategoryPath: () => `/admin/hierarchy/create-category`,
     updateCategoryPath: () => `/admin/hierarchy/update-category`,
     myTutorialListPath: (tutorialID) => `/admin/tutorials/${tutorialID}`,
