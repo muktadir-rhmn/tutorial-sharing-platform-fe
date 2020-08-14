@@ -17,6 +17,9 @@ class TutorialCard extends React.Component{
     render() {
         const tutorial = this.props.tutorial;
 
+        let rating = "";
+        if (tutorial.avgRating !== null) rating = <div className="rating"><i className="fa fa-star" aria-hidden="true"></i> {tutorial.avgRating}</div>;
+
         return (
             <div className="tutorial-card card">
                 <div className="card-body">
@@ -27,7 +30,7 @@ class TutorialCard extends React.Component{
                         by <Link to={navigatorPaths.tutorialsByAuthorPath(tutorial.authorID)}>{tutorial.authorName}</Link>
                     </h6>
                     <div className="description">{tutorial.description}</div>
-                    <div className="rating"><i className="fa fa-star" aria-hidden="true"></i> {tutorial.avgRating}</div>
+                    {rating}
                 </div>
             </div>
         );
