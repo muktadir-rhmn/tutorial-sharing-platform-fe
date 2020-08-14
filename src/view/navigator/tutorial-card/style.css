@@ -2,3 +2,12 @@
     width: 15em;
     margin: 2em;
 }
+
+.tutorial-card .description {
+    height: 5em;
+    overflow: hidden;
+}
+
+.rating{
+    color: #b89029;
+}

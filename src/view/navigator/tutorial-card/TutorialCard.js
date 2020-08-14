@@ -24,9 +24,10 @@ class TutorialCard extends React.Component{
                         <Link to={viewerPaths.tutorialPath(tutorial.id)}>{tutorial.name}</Link>
                     </h5>
                     <h6 className="card-subtitle mb-2 text-muted">
-                        <Link to={navigatorPaths.tutorialsByAuthorPath(tutorial.authorID)}>{tutorial.authorName}</Link>
+                        by <Link to={navigatorPaths.tutorialsByAuthorPath(tutorial.authorID)}>{tutorial.authorName}</Link>
                     </h6>
-                    <p className="card-text">{tutorial.description}</p>
+                    <div className="description">{tutorial.description}</div>
+                    <div className="rating"><i className="fa fa-star" aria-hidden="true"></i> {tutorial.avgRating}</div>
                 </div>
             </div>
         );
