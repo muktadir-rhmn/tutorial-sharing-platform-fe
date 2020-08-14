@@ -1,7 +1,8 @@
 const time = {
     millisToTime: function(millis) {
         if(millis === null) return '-';
-        return new Date(parseInt(millis)).toUTCString();
+        const date =  new Date(parseInt(millis));
+        return`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
     }
 }
 
