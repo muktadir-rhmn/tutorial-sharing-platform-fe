@@ -51,7 +51,7 @@ class Comments extends React.Component{
     renderReplyList(commentID, replies) {
         const replyList = [];
         for (let i = 0; i < replies.length; i++) {
-            replyList.push(<Reply key={replies[i].id} reply={replies[i]}/>);
+            replyList.push(<Reply key={replies[i].id} parentID={commentID} reply={replies[i]}/>);
         }
 
         return (

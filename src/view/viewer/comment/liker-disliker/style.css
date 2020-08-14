@@ -1,0 +1,11 @@
+.liker-disliker {
+    color: green;
+}
+
+.liker-disliker span {
+    cursor: pointer;
+}
+
+.liker-disliker .active {
+    color: #ba8b00;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import time from "../../../library/time";
+import LikerDisliker from "./liker-disliker/LikerDisliker";
 
 class Reply extends React.Component{
     constructor(props)  {
@@ -20,6 +21,8 @@ class Reply extends React.Component{
                 </div>
 
                 <p>{reply.body}</p>
+
+                <LikerDisliker commentIDPath={this.props.parentID + ":" + reply.id} nLikes={reply.nLikes}/>
             </div>
         );
     }
