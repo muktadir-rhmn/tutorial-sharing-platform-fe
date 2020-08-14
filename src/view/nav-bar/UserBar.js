@@ -20,7 +20,7 @@ class UserBar extends React.Component{
             </div>
         )
         return (
-            <div className="d-flex justify-content-end mr-3">
+            <div className="d-flex justify-content-end mr-3 bg-light">
                 {content}
             </div>
         );

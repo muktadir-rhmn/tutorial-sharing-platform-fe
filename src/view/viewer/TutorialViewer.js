@@ -19,15 +19,15 @@ class TutorialViewer extends React.Component{
 
     render() {
         return (
-            <div className="container" style={{marginTop: "150px"}}>
+            <div className="container-fluid" style={{marginTop: "150px", width: "100vw"}}>
                 <div className="row">
                     <div className="col-3">
-                        <div className="contents-section position-fixed">
+                        <div className="contents-section position-fixed" style={{minWidth: "330px"}}>
                             <Heading tutorial={this.state.tutorial}/>
                             <Contents tutorial={this.state.tutorial} curLessonID={this.props.lessonID}/>
                         </div>
                     </div>
-                    <div className="col-7">
+                    <div className="col-6">
                         <div className="row">
                             <div className="col">
                                 <Lesson tutorialID={this.props.tutorialID} chapterID={this.props.chapterID} lessonID={this.props.lessonID}/>
@@ -39,7 +39,7 @@ class TutorialViewer extends React.Component{
                             </div>
                         </div>
                     </div>
-                    <div className="col-2">
+                    <div className="col-3">
                         <LessonNote lessonID={this.props.lessonID}/>
                     </div>
                 </div>
