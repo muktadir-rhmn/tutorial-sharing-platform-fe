@@ -15,6 +15,7 @@ class LikerDisliker extends React.Component{
     }
 
     render() {
+        if (!userManager.isSignedIn()) return "";
         return (
             <div className="liker-disliker">
                 <span  onClick={event => this.likeDislike(this.props.commentIDPath, "like")}>

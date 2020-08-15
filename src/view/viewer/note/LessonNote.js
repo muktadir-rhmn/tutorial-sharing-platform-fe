@@ -41,10 +41,12 @@ class LessonNote extends React.Component{
     }
 
     componentDidMount() {
+        if (!userManager.isSignedIn()) return <div/>;
         this.fetchNote(this.props.lessonID);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
+        if (!userManager.isSignedIn()) return <div/>;
         if (this.props.lessonID !== prevProps.lessonID) this.fetchNote(this.props.lessonID);
     }
 
