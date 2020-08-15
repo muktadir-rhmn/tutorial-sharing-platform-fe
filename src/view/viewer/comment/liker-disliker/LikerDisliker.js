@@ -2,6 +2,7 @@ import React from 'react';
 
 import './style.css';
 import requester from "../../../../library/requester";
+import userManager from "../../../user/UserManager";
 
 class LikerDisliker extends React.Component{
     constructor(props)  {
@@ -57,6 +58,8 @@ class LikerDisliker extends React.Component{
 
     //todo: optimise this. this will be called for every comments. But can make it a single call
     fetchMyLikeDislike(commentIDPath) {
+        if (!userManager.isSignedIn()) return;
+
         const path = `/evaluations/my`;
         const data = {
             itemIDs: [commentIDPath]

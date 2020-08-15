@@ -15,7 +15,7 @@ class Rater extends React.Component{
     }
 
     render() {
-        if (!userManager.isSignedIn()) return <div/>
+        if (!userManager.isSignedIn()) return <div/>;
         if (this.state.hasRated == null) return <div/>;
 
         const stars = this.renderStars(this.state.hasRated, this.state.rating);
@@ -66,10 +66,12 @@ class Rater extends React.Component{
     }
 
     componentDidMount() {
+        if (!userManager.isSignedIn()) return;
         this.fetchUserRating(this.props.tutorialID);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
+        if (!userManager.isSignedIn()) return;
         if (prevProps.tutorialID !== this.props.tutorialID) this.fetchUserRating(this.props.tutorialID);
     }
 

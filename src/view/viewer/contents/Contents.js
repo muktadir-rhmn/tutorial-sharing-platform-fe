@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import viewerPaths from "../ViewerPaths";
 import requester from "../../../library/requester";
+import userManager from "../../user/UserManager";
 
 class Contents extends React.Component{
     constructor(props) {
@@ -71,6 +72,8 @@ class Contents extends React.Component{
     }
 
     fetchDoneLessonIDs(tutorialID) {
+        if (!userManager.isSignedIn()) return;
+
         const path = `/markings/${tutorialID}/done`;
 
         requester.GET(path).then(

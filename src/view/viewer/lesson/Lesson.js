@@ -1,5 +1,6 @@
 import React from 'react';
 import requester from "../../../library/requester";
+import userManager from "../../user/UserManager";
 
 class Lesson extends React.Component{
     constructor(props)  {
@@ -14,8 +15,13 @@ class Lesson extends React.Component{
     render() {
         if (this.state.lesson === null) return <div/>;
 
-        let markButton = this.state.isDone ? "" : <button className="btn btn-success" onClick={event => this.markAsDone(event)}><i className="fa fa-check" aria-hidden="true"></i> Mark As Done</button>;
-
+        let markButton = "";
+        if(userManager.isSignedIn() && !!this.state.isDone) {
+            markButton =
+                <button className="btn btn-success" onClick={event => this.markAsDone(event)}><i className="fa fa-check"
+                                                                                                 aria-hidden="true"></i> Mark
+                    As Done</button>;
+        }
         const lesson = this.state.lesson;
         return (
             <div className="card p-3">
@@ -76,7 +82,9 @@ class Lesson extends React.Component{
     }
 
     fetchLessonMark(tutorialID, lessonID) {
-        const path = `/markings/${this.props.tutorialID}/${this.props.lessonID}/has-mark`;
+        if (!userManager.isSignedIn()) return;
+        alert()
+        const path = `/markings/${tutorialID}/${lessonID}/has-mark`;
         const data = {
             mark: "done"
         }
