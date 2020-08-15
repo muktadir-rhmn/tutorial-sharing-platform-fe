@@ -7,27 +7,55 @@ class Lesson extends React.Component{
 
         this.state = {
             lesson: null,
+            isDone: null,
         };
     }
 
     render() {
-        if (this.state.lesson === null) return <div></div>;
+        if (this.state.lesson === null) return <div/>;
+
+        let markButton = this.state.isDone ? "" : <button className="btn btn-success" onClick={event => this.markAsDone(event)}><i className="fa fa-check" aria-hidden="true"></i> Mark As Done</button>;
 
         const lesson = this.state.lesson;
         return (
             <div className="card p-3">
-                <h1>{lesson.name}</h1>
+                <h1>{lesson.name} {this.state.isDone ? <i className="fa fa-check" style={{color:"green"}} aria-hidden="true"></i> : ""}</h1>
                 {lesson.body}
+
+                <div className="d-flex justify-content-end">
+                    {markButton}
+                </div>
             </div>
         );
     }
 
+    markAsDone(event) {
+        const path = `/markings/${this.props.tutorialID}/${this.props.lessonID}`;
+        const data = {
+            mark: "done",
+        }
+
+        requester.POST(path, data).then(
+            (response) => {
+                alert("Marked as Done");
+                this.setState({
+                    isDone: true,
+                })
+                window.location.reload();
+            }
+        )
+    }
+
     componentDidMount() {
         this.fetchLesson(this.props.lessonID);
+        this.fetchLessonMark(this.props.tutorialID, this.props.lessonID);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.lessonID !== this.props.lessonID) this.fetchLesson(this.props.lessonID);
+        if (prevProps.lessonID !== this.props.lessonID) {
+            this.fetchLesson(this.props.lessonID);
+            this.fetchLessonMark(this.props.tutorialID, this.props.lessonID);
+        }
     }
 
     fetchLesson(lessonID) {
@@ -45,6 +73,22 @@ class Lesson extends React.Component{
                 console.error(error);
             }
         )
+    }
+
+    fetchLessonMark(tutorialID, lessonID) {
+        const path = `/markings/${this.props.tutorialID}/${this.props.lessonID}/has-mark`;
+        const data = {
+            mark: "done"
+        }
+
+        requester.POST(path, data).then(
+            (response) => {
+                this.setState({
+                    isDone: response.hasMark,
+                })
+            }
+        )
+
     }
 }
 
