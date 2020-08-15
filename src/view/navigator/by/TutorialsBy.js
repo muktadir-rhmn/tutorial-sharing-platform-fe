@@ -13,7 +13,7 @@ class TutorialsBy extends React.Component{
 
     render() {
         return (
-            <div className="mt-5">
+            <div style={{marginTop:"150px"}}>
                 <TutorialCardList tutorials={this.state.tutorials} />
             </div>
         );
