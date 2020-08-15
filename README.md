@@ -7,6 +7,7 @@ This is a tutorial sharing platform.
     - Discuss on the lessons
     - Like/Dislike comments
     - Take notes for each lesson 
+    - Track progress on each tutorial
 
 # Design
 ![](docs/fe_design.svg)

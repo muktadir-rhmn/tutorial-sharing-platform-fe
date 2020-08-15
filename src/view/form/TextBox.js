@@ -24,7 +24,7 @@ class TextBox extends React.Component {
         return (
             <div className="form-group">
                 <label htmlFor={this.props.id}>{this.props.label} {description}</label>
-                <input className="form-input form-control" type="text" id={this.state.id} value={this.state.value} onChange={event => this.setState({value: event.target.value})}/>
+                <input className="form-input form-control" type="text" id={this.props.id} value={this.state.value} onChange={event => this.setState({value: event.target.value})}/>
                 {errorMessage}
             </div>
         )
