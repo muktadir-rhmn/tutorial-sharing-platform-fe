@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 
 import TextBox from '../form/TextBox'
 import PasswordBox from '../form/PasswordBox'
@@ -16,15 +16,10 @@ class SignIn extends React.Component {
         this.state = {
             overallErrorMessage: "",
         }
-
-        this.handleSignIn = this.handleSignIn.bind(this);
     }
 
     render() {
-        if(userManager.isSignedIn()) {
-            window.location.href = "/";
-            return;
-        }
+        if(userManager.isSignedIn()) return <Redirect to="/" />;
 
         let overallErrorMessage = "";
         if (this.state.overallErrorMessage !== "") {
@@ -39,8 +34,10 @@ class SignIn extends React.Component {
                 {overallErrorMessage}
                 <TextBox id="email" label="Email"/>
                 <PasswordBox id="password" label="Password"/>
-                <Button onClick={this.handleSignIn} label="Sign In"/><br/>
-                <div className="alreadySignedUp">No Account? <Link to={userPaths.signUpPath()}>Sign Up</Link> </div>
+                <Button onClick={event => this.handleSignIn(event)} label="Sign In"/><br/>
+                <div>
+                    No Account? <Link to={userPaths.signUpPath()}>Sign Up</Link>
+                </div>
             </div>
         );
     }

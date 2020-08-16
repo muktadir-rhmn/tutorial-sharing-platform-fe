@@ -12,3 +12,10 @@ This is a tutorial sharing platform.
 
 # Design
 ![](docs/fe_design.svg)
+
+Each component is independent of other components, except child components get necessary data from its parent components.
+
+## Stacks Used
+Languages: JavaScript, HTML, CSS
+
+Framework: React, Bootstrap 

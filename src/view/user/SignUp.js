@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 
 import TextBox from '../form/TextBox'
 import PasswordBox from '../form/PasswordBox'
@@ -21,13 +21,9 @@ class SignUp extends React.Component {
             }
         }
 
-        this.handleSignUp = this.handleSignUp.bind(this);
     }
     render() {
-        if(userManager.isSignedIn()) {
-            window.location.href = "/";
-            return;
-        }
+        if(userManager.isSignedIn()) return <Redirect to="/" />;
 
         return (
             <div id="sign-up-form" className="box shadow p-3 mb-5 ml-auto mr-auto bg-white rounded w-50">
@@ -35,8 +31,9 @@ class SignUp extends React.Component {
                 <TextBox id="name" label="Name" errorMessage={this.state.errorMessage.name}/>
                 <TextBox id="email" label="Email Address" errorMessage={this.state.errorMessage.email}/>
                 <PasswordBox id="password" label="Password" description="At least 8 character long" errorMessage={this.state.errorMessage.password}/>
-                <Button onClick={this.handleSignUp} label="Sign Up"/><br/>
-                <div className="alreadySignedUp">Already have an account? <Link to={userPaths.signInPath()}>Sign In</Link>
+                <Button onClick={event => this.handleSignUp(event)} label="Sign Up"/><br/>
+                <div>
+                    Already have an account? <Link to={userPaths.signInPath()}>Sign In</Link>
                 </div>
             </div>
         );
@@ -49,28 +46,21 @@ class SignUp extends React.Component {
             (response) => {
                 console.log(response);
 
-                handleSignUpSuccess(this, response.message);
+                alert(response.message);
+                window.location.href = userPaths.signInPath();
             },
             (errorObject) => {
                 console.error(errorObject);
-                handleSignUpFailure(this, errorObject)
+
+                this.setState({
+                    errorMessage: {
+                        name: errorObject.name,
+                        email: errorObject.email,
+                        password: errorObject.password,
+                    }
+                })
             }
         )
-
-        function handleSignUpSuccess(signUpComponent, message){
-            alert(message);
-            window.location.href = userPaths.signInPath();
-        }
-
-        function handleSignUpFailure(signUpComponent, errorObject) {
-            signUpComponent.setState({
-                errorMessage: {
-                    name: errorObject.name,
-                    email: errorObject.email,
-                    password: errorObject.password,
-                }
-            })
-        }
     }
 }
 

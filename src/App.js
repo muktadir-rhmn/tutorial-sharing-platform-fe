@@ -3,7 +3,6 @@ import './App.css';
 import SignIn from "./view/user/SignIn";
 import SignUp from "./view/user/SignUp";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import RoutingTest from "./view/RoutingTest";
 import AdminRouter from "./view/admin/AdminRouter";
 import ViewerMain from "./view/viewer/ViewerMain";
 import LandingPage from "./view/navigator/landing-page/LandingPage";

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Route, Switch, useRouteMatch} from 'react-router-dom'
+import {Link, Redirect, Route, Switch, useRouteMatch} from 'react-router-dom'
 
 import './style.css'
 import CreateUpdateTutorial from "./tutorial/create-update/CreateUpdateTutorial";
@@ -14,9 +14,8 @@ import UpdateTutorialRouter from "./tutorial/create-update/UpdateTutorialRouter"
 import UpdateCategory from "./hierarchy/UpdateCategory";
 
 function AdminRouter (){
-    if (!userManager.isSignedIn()) window.location.href = userPaths.signInPath();
-
     let { path } = useRouteMatch();
+    if(!userManager.isSignedIn()) return <Redirect to={userPaths.signInPath()} />;
 
     let adminItems = [];
     if (userManager.isAdmin()) {

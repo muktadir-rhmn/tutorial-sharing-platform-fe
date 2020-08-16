@@ -38,7 +38,6 @@ class Contents extends React.Component{
             )
             contents.push(chapter);
         }
-        console.log(contents);
         return contents;
     }
 
@@ -81,7 +80,6 @@ class Contents extends React.Component{
                 this.setState({
                     doneLessonIDs: response.lessonIDs,
                 })
-                console.log(this.state)
             }
         )
     }
