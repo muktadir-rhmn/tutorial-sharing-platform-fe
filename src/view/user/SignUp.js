@@ -1,13 +1,13 @@
 import React from 'react';
 import {Link, Redirect} from 'react-router-dom'
 
-import TextBox from '../form/TextBox'
-import PasswordBox from '../form/PasswordBox'
-import Button from '../form/Button'
 import userManager from "./UserManager";
-import formDataCollector from "../../library/formDataCollector";
 import requester from "../../library/requester";
 import userPaths from "./UserPaths";
+import TextBox from "../../form/TextBox";
+import PasswordBox from "../../form/PasswordBox";
+import Button from "../../form/Button";
+import formDataCollector from "../../form/formDataCollector";
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -28,9 +28,9 @@ class SignUp extends React.Component {
         return (
             <div id="sign-up-form" className="box shadow p-3 mb-5 ml-auto mr-auto bg-white rounded w-50">
                 <h1>Sign Up</h1>
-                <TextBox id="name" label="Name" errorMessage={this.state.errorMessage.name}/>
-                <TextBox id="email" label="Email Address" errorMessage={this.state.errorMessage.email}/>
-                <PasswordBox id="password" label="Password" description="At least 8 character long" errorMessage={this.state.errorMessage.password}/>
+                <TextBox name="name" label="Name" errorMessage={this.state.errorMessage.name}/>
+                <TextBox name="email" label="Email Address" errorMessage={this.state.errorMessage.email}/>
+                <PasswordBox name="password" label="Password" description="At least 8 character long" errorMessage={this.state.errorMessage.password}/>
                 <Button onClick={event => this.handleSignUp(event)} label="Sign Up"/><br/>
                 <div>
                     Already have an account? <Link to={userPaths.signInPath()}>Sign In</Link>

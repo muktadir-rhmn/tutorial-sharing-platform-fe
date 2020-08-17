@@ -4,10 +4,10 @@ const formDataCollector = {
 
         const elements = document.querySelectorAll(`#${formID} .form-control`);
         for(let i = 0; i < elements.length; i++) {
-            data[elements[i].id] = elements[i].value;
+            data[elements[i].name] = elements[i].value;
         }
 
-        console.log("form Data:", data);
+        console.log("Form Data:", data);
         return data;
     }
 }

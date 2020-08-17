@@ -1,9 +1,9 @@
 import React from 'react';
-import TextBox from "../../form/TextBox";
-import TextArea from "../../form/TextArea";
-import Button from "../../form/Button";
 import requester from "../../../library/requester";
-import formDataCollector from "../../../library/formDataCollector";
+import TextBox from "../../../form/TextBox";
+import TextArea from "../../../form/TextArea";
+import Button from "../../../form/Button";
+import formDataCollector from "../../../form/formDataCollector";
 
 class AddUpdateLesson extends React.Component{
     constructor(props)  {
@@ -27,8 +27,8 @@ class AddUpdateLesson extends React.Component{
             <div>
                 <h1>{operationName} Lesson</h1>
                 <div id="add-update-lesson-form">
-                    <TextBox label="Name" id="name" value={name}/>
-                    <TextArea label="Body" id="body" value={body}/>
+                    <TextBox label="Name" name="name" value={name}/>
+                    <TextArea label="Body" name="body" value={body}/>
                     <Button label={`${operationName}`} onClick={event => this.addUpdateLesson(event)}/>
                 </div>
             </div>

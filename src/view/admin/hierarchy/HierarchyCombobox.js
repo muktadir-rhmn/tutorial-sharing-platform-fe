@@ -20,9 +20,9 @@ class HierarchyCombobox extends React.Component{
 
         return (
             <div>
-                <label form={this.props.id}>{this.props.label}</label>
+                <label>{this.props.label}</label>
                 <select defaultValue={this.props.value}
-                        id={this.props.id}
+                        name={this.props.name}
                         onChange={(event => this.handleComboboxItemChange(event))}
                         className="form-control">{options}</select>
             </div>

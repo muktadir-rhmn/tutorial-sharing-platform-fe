@@ -1,9 +1,9 @@
 import React from 'react';
 import HierarchyCombobox from "./HierarchyCombobox";
-import TextBox from "../../form/TextBox";
-import Button from "../../form/Button";
 import requester from "../../../library/requester";
-import formDataCollector from "../../../library/formDataCollector";
+import formDataCollector from "../../../form/formDataCollector";
+import TextBox from "../../../form/TextBox";
+import Button from "../../../form/Button";
 
 class CreateUpdateCategory extends React.Component{
     constructor(props)  {
@@ -28,8 +28,8 @@ class CreateUpdateCategory extends React.Component{
             <div>
                 <h1>{operationName} Category</h1>
                 <div id="create-update-category-form">
-                    <TextBox id="name" label="Name" value={categoryName}/>
-                    <HierarchyCombobox id="parentIDPath" label="Parent Category" includeRoot={true} value={parentCategoryID}/>
+                    <TextBox name="name" label="Name" value={categoryName}/>
+                    <HierarchyCombobox name="parentIDPath" label="Parent Category" includeRoot={true} value={parentCategoryID}/>
                     <Button label={operationName} onClick={(event) => this.createCategory(event)}/>
                 </div>
             </div>

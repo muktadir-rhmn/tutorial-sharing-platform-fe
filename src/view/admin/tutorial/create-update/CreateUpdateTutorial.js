@@ -1,10 +1,10 @@
 import React from 'react';
-import TextBox from "../../../form/TextBox";
-import TextArea from "../../../form/TextArea";
 import requester from "../../../../library/requester";
-import Button from "../../../form/Button";
-import formDataCollector from "../../../../library/formDataCollector";
 import HierarchyCombobox from "../../hierarchy/HierarchyCombobox";
+import TextBox from "../../../../form/TextBox";
+import TextArea from "../../../../form/TextArea";
+import Button from "../../../../form/Button";
+import formDataCollector from "../../../../form/formDataCollector";
 
 class CreateUpdateTutorial extends React.Component{
     constructor(props) {
@@ -29,9 +29,9 @@ class CreateUpdateTutorial extends React.Component{
             <div>
                 <h1>{operationName} Tutorial</h1>
                 <div id="create-update-tutorial-form">
-                    <TextBox id="name" label="Name" value={tutorialName}/>
-                    <TextArea id="description" label="Description" value={tutorialDescription}/>
-                    <HierarchyCombobox id="categoryID" label="Category" includeRoot={false} value={tutorialCategoryID}/>
+                    <TextBox name="name" label="Name" value={tutorialName}/>
+                    <TextArea name="description" label="Description" value={tutorialDescription}/>
+                    <HierarchyCombobox name="categoryID" label="Category" includeRoot={false} value={tutorialCategoryID}/>
                     <Button label={operationName} onClick={(event) => this.createUpdateTutorial(event)}/>
                 </div>
             </div>

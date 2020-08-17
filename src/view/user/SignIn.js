@@ -1,13 +1,13 @@
 import React from 'react';
 import {Link, Redirect} from 'react-router-dom'
 
-import TextBox from '../form/TextBox'
-import PasswordBox from '../form/PasswordBox'
-import Button from '../form/Button'
-import formDataCollector from "../../library/formDataCollector";
 import userManager from "./UserManager";
 import requester from "../../library/requester";
 import userPaths from "./UserPaths";
+import TextBox from "../../form/TextBox";
+import PasswordBox from "../../form/PasswordBox";
+import Button from "../../form/Button";
+import formDataCollector from "../../form/formDataCollector";
 
 class SignIn extends React.Component {
     constructor(props)  {
@@ -32,8 +32,8 @@ class SignIn extends React.Component {
             <div id="sign-in-form" className="box shadow p-3 mb-5 ml-auto mr-auto bg-white rounded w-50">
                 <h1>Sign In</h1>
                 {overallErrorMessage}
-                <TextBox id="email" label="Email"/>
-                <PasswordBox id="password" label="Password"/>
+                <TextBox name="email" label="Email"/>
+                <PasswordBox name="password" label="Password"/>
                 <Button onClick={event => this.handleSignIn(event)} label="Sign In"/><br/>
                 <div>
                     No Account? <Link to={userPaths.signUpPath()}>Sign Up</Link>
