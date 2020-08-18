@@ -45,7 +45,7 @@ class SignIn extends React.Component {
     handleSignIn() {
         const data =  formDataCollector.collect("sign-in-form");
 
-        requester.POST("/user/sign-in", data).then(
+        requester.POST("/users/sign-in", data).then(
             (response) => {
                 userManager.setSignedInUser(response.token, response.userType, response.userID, response.userName);
 

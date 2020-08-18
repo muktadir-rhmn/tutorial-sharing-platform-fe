@@ -42,7 +42,7 @@ class SignUp extends React.Component {
     handleSignUp() {
         const data = formDataCollector.collect("sign-up-form");
 
-        requester.POST("/user/sign-up", data).then(
+        requester.POST("/users/sign-up", data).then(
             (response) => {
                 console.log(response);
 
